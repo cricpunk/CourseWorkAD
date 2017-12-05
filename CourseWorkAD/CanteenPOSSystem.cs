@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CourseWorkAD
 {
-    public partial class MenuGenerator : Form {
+    public partial class CanteenPOSSystem : Form {
 
-        public MenuGenerator() {
+        public CanteenPOSSystem() {
             InitializeComponent();
         }
 

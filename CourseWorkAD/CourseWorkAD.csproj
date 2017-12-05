@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,25 +51,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillGenerator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BillGenerator.Designer.cs">
+      <DependentUpon>BillGenerator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChartGenerator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChartGenerator.Designer.cs">
+      <DependentUpon>ChartGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuGenerator.cs">
+    <Compile Include="CanteenPOSSystem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuGenerator.Designer.cs">
-      <DependentUpon>MenuGenerator.cs</DependentUpon>
+    <Compile Include="CanteenPOSSystem.Designer.cs">
+      <DependentUpon>CanteenPOSSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuItem.Designer.cs">
+      <DependentUpon>MenuItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BillGenerator.resx">
+      <DependentUpon>BillGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChartGenerator.resx">
+      <DependentUpon>ChartGenerator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuGenerator.resx">
-      <DependentUpon>MenuGenerator.cs</DependentUpon>
+    <EmbeddedResource Include="CanteenPOSSystem.resx">
+      <DependentUpon>CanteenPOSSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuItem.resx">
+      <DependentUpon>MenuItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -16,7 +16,7 @@ namespace CourseWorkAD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuGenerator());
+            Application.Run(new CanteenPOSSystem());
         }
     }
 }
