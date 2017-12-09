@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CourseWorkAD
-{
+namespace CourseWorkAD {
     public partial class CanteenPOSSystem : Form {
 
         public CanteenPOSSystem() {
             InitializeComponent();
+            homePage.BringToFront();
         }
 
         private void BtnSystemClose_Click(object sender, EventArgs e) {
@@ -36,5 +29,22 @@ namespace CourseWorkAD
                 PanelAnimator.ShowSync(PnlSideBar);
             }
         }
+
+        private void BtnHomeSideBar_Click(object sender, EventArgs e) {
+            homePage.BringToFront();
+        }
+
+        private void BtnMenuSideBar_Click(object sender, EventArgs e) {
+            menuItem.BringToFront();
+        }
+
+        private void BtnChartSideBar_Click(object sender, EventArgs e) {
+            chartGenerator.BringToFront();
+        }
+
+        private void BtnGenerateBillSideBar_Click(object sender, EventArgs e) {
+            billGenerator.BringToFront();
+        }
+
     }
 }
