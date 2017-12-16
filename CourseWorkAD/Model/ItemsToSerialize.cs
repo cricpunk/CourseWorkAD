@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace CourseWorkAD {
+namespace CourseWorkAD.Model {
 
     [Serializable()]
     class ItemsToSerialize : ISerializable {

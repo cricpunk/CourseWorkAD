@@ -1,4 +1,6 @@
-﻿namespace CourseWorkAD
+﻿using CourseWorkAD.CustomUserControl;
+
+namespace CourseWorkAD
 {
     partial class CanteenPOSSystem
     {
@@ -45,10 +47,10 @@
             this.PbOrgIcon = new System.Windows.Forms.PictureBox();
             this.LblOrgName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.BunifuDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.billGenerator = new CourseWorkAD.BillGenerator();
-            this.chartGenerator = new CourseWorkAD.ChartGenerator();
-            this.menuItem = new CourseWorkAD.MenuItem();
-            this.homePage = new CourseWorkAD.HomePage();
+            this.billGenerator = new CourseWorkAD.CustomUserControl.BillGenerator();
+            this.chartGenerator = new CourseWorkAD.CustomUserControl.ChartGenerator();
+            this.menuItem = new CourseWorkAD.CustomUserControl.MenuItem();
+            this.homePage = new CourseWorkAD.CustomUserControl.HomePage();
             this.LogoAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.PanelAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.PnlSideBar.SuspendLayout();

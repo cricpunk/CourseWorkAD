@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace CourseWorkAD {
+namespace CourseWorkAD.Model {
 
     [Serializable()]
     class Item : ISerializable {

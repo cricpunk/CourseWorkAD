@@ -51,23 +51,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BillGenerator.cs">
+    <Compile Include="CustomUserControl\BillGenerator.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BillGenerator.Designer.cs">
+    <Compile Include="CustomUserControl\BillGenerator.Designer.cs">
       <DependentUpon>BillGenerator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Item.cs" />
+    <Compile Include="Model\Item.cs" />
     <Compile Include="CustomUserControl\ChartGenerator.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CustomUserControl\ChartGenerator.Designer.cs">
       <DependentUpon>ChartGenerator.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomePage.cs">
+    <Compile Include="CustomUserControl\HomePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="HomePage.Designer.cs">
+    <Compile Include="CustomUserControl\HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="CanteenPOSSystem.cs">
@@ -76,30 +76,30 @@
     <Compile Include="CanteenPOSSystem.Designer.cs">
       <DependentUpon>CanteenPOSSystem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemsToSerialize.cs" />
-    <Compile Include="MenuItem.cs">
+    <Compile Include="Model\ItemsToSerialize.cs" />
+    <Compile Include="CustomUserControl\MenuItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MenuItem.Designer.cs">
+    <Compile Include="CustomUserControl\MenuItem.Designer.cs">
       <DependentUpon>MenuItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serializer.cs" />
     <Compile Include="FormValidator\Validator.cs" />
-    <EmbeddedResource Include="BillGenerator.resx">
+    <Compile Include="Serialization\Serializer.cs" />
+    <EmbeddedResource Include="CustomUserControl\BillGenerator.resx">
       <DependentUpon>BillGenerator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomUserControl\ChartGenerator.resx">
       <DependentUpon>ChartGenerator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomePage.resx">
+    <EmbeddedResource Include="CustomUserControl\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CanteenPOSSystem.resx">
       <DependentUpon>CanteenPOSSystem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuItem.resx">
+    <EmbeddedResource Include="CustomUserControl\MenuItem.resx">
       <DependentUpon>MenuItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -127,5 +127,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

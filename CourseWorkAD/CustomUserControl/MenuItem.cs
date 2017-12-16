@@ -5,9 +5,10 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.FileIO;
-using Bunifu.Framework.UI;
+using CourseWorkAD.Model;
+using CourseWorkAD.Serialization;
 
-namespace CourseWorkAD {
+namespace CourseWorkAD.CustomUserControl {
 
     public partial class MenuItem : UserControl {
 

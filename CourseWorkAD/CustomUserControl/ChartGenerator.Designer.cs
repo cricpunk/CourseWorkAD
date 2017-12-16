@@ -1,4 +1,4 @@
-﻿namespace CourseWorkAD {
+﻿namespace CourseWorkAD.CustomUserControl {
 
     partial class ChartGenerator {
         /// <summary> 

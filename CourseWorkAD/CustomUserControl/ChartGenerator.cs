@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CourseWorkAD {
+namespace CourseWorkAD.CustomUserControl {
 
     public partial class ChartGenerator : UserControl {
 

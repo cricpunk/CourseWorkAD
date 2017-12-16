@@ -1,4 +1,5 @@
-﻿namespace CourseWorkAD {
+﻿namespace CourseWorkAD.CustomUserControl {
+
     partial class BillGenerator {
         /// <summary> 
         /// Required designer variable.

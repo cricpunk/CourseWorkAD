@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CourseWorkAD.Model;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace CourseWorkAD {
+namespace CourseWorkAD.Serialization {
 
     class Serializer {
 
@@ -26,7 +22,7 @@ namespace CourseWorkAD {
             //stream = File.Open(fileName, FileMode.Open);
 
             stream.Close();
-            
+
         }
 
         public ItemsToSerialize DeserializeItems(string fileName) {
@@ -44,4 +40,6 @@ namespace CourseWorkAD {
             return itemsToSerialize;
         }
     }
+
 }
+
