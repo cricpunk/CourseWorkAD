@@ -1,4 +1,5 @@
 ﻿namespace CourseWorkAD {
+
     partial class ChartGenerator {
         /// <summary> 
         /// Required designer variable.

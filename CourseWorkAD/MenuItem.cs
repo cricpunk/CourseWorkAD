@@ -2,28 +2,27 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
-using System.Resources;
 using Microsoft.VisualBasic.FileIO;
 using Bunifu.Framework.UI;
 
 namespace CourseWorkAD {
+
     public partial class MenuItem : UserControl {
 
         private ComponentResourceManager resources;
         private Boolean update = false;
         private int updateIndex;
-        public Dictionary<string, string> itemCodeName;
+        public static string dataLocation = Application.StartupPath + @"\ItemsData.dat";
+
 
         public MenuItem() {
             InitializeComponent();
             resources = new ComponentResourceManager(typeof(MenuItem));
             dropDownItemCategory.Items = ItemCategory();
             dropDownItemCategory.selectedIndex = 0;
+            InsertIntoTable();
         }
 
         private void BtnImport_Click(object sender, EventArgs e) {
@@ -33,42 +32,128 @@ namespace CourseWorkAD {
             };
 
             DialogResult result = fileDialog.ShowDialog();
+
             if (result == DialogResult.OK) {
-                txtBoxFileLocation.Text = fileDialog.FileName;
-                // Method which process imported data and set into data table
-                ProcessCSVFileData(txtBoxFileLocation.Text);
+
+                if(File.Exists(dataLocation)) {
+
+                    if (MessageBox.Show("It seems like data has been already imported. \n Is this updated one ? ", "Import Confirmation",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
+
+                        txtBoxFileLocation.Text = fileDialog.FileName;                       
+
+                    } else {
+                        txtBoxFileLocation.ResetText();
+                    }  
+                    
+                } else {
+                    txtBoxFileLocation.Text = fileDialog.FileName;
+                }
+
             }
 
         }
 
         private void BtnAddImportData_Click(object sender, EventArgs e) {
-            //ProcessCSVFileData(txtBoxFileLocation.Text);
-            txtBoxFileLocation.ResetText();
 
-            List<Item> items = new List<Item>();
-            ItemsToSerialize itemsToSerialize = new ItemsToSerialize();
-            itemsToSerialize = new Serializer().DeserializeItems("ItemsData.dat");
-
-            items = itemsToSerialize.Items;
-
-           
-
-            for (int i = 0; i < items.Count; i++) {
-                int targetRow = dataGridMenu.Rows.Count - 1;
-                dataGridMenu.Rows.Add();
-                dataGridMenu.Rows[targetRow].Cells[0].Value = targetRow + 1;
-                dataGridMenu.Rows[targetRow].Cells[1].Value = items[i].ItemCode;
-                dataGridMenu.Rows[targetRow].Cells[2].Value = items[i].ItemName;
-                dataGridMenu.Rows[targetRow].Cells[3].Value = items[i].ItemCategory;
-                dataGridMenu.Rows[targetRow].Cells[4].Value = items[i].ItemRate;
+            if (txtBoxFileLocation.Text == "") {
+                MessageBox.Show("There is no imported file to add into table.", " Missing file", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else {
+                if(ProcessCSVFileData(txtBoxFileLocation.Text)) {
+                    txtBoxFileLocation.ResetText();
+                    dataGridMenu.Rows.Clear();
+                    InsertIntoTable();
+                }               
             }
-
             
+        }
+
+        private Boolean ProcessCSVFileData(string filePath) {
+
+            try {
+                //Reading cvs file using pre-defined method 
+                TextFieldParser csvReader = new TextFieldParser(filePath);
+
+                //Set delimiter for the reader
+                csvReader.SetDelimiters(new string[] { "," });
+
+                //If fields are enclose in quotation marks use this
+                csvReader.HasFieldsEnclosedInQuotes = true;
+
+                // Skipping header from the csv file
+                //csvReader.ReadLine();
+
+                string[] heading = csvReader.ReadFields();
+
+                if (heading.Length == 4 && heading[0].ToLower().Equals("code") && heading[1].ToLower().Equals("particular") && heading[2].ToLower().Equals("category") && heading[3].ToLower().Equals("price")) {
+
+                    File.Delete(dataLocation);
+
+                    // List which store imported items
+                    List<Item> items = new List<Item>();
+
+                    while (!csvReader.EndOfData) {
+                        // Read all fields of current line
+                        string[] fieldData = csvReader.ReadFields();
+
+                        Item item = new Item {
+                            ItemCode = fieldData[0],
+                            ItemName = fieldData[1],
+                            ItemCategory = fieldData[2],
+                            ItemRate = fieldData[3]
+                        };
+
+                        items.Add(item);
+                    }
+
+                    ItemsToSerialize itemsToSerialize = new ItemsToSerialize {
+                        Items = items
+                    };
+                    new Serializer().SearilizeItems("ItemsData.dat", itemsToSerialize);
+
+                    return true;
+                   
+                } else {
+                    MessageBox.Show("Opps ! This might be wrong data.", " Data Mismach", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtBoxFileLocation.ResetText();
+                    return false;
+                }
+            } catch (Exception e) {
+                MessageBox.Show(e.Message, " Import CSV File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        private void InsertIntoTable() {
+
+            if (File.Exists(dataLocation)) {
+
+                List<Item> items = new List<Item>();
+                ItemsToSerialize itemsToSerialize = new ItemsToSerialize();
+                itemsToSerialize = new Serializer().DeserializeItems("ItemsData.dat");
+
+                items = itemsToSerialize.Items;
+
+                for (int i = 0; i < items.Count; i++) {
+                    int targetRow = dataGridMenu.Rows.Count - 1;
+                    dataGridMenu.Rows.Add();
+                    dataGridMenu.Rows[targetRow].Cells[0].Value = targetRow + 1;
+                    dataGridMenu.Rows[targetRow].Cells[1].Value = items[i].ItemCode;
+                    dataGridMenu.Rows[targetRow].Cells[2].Value = items[i].ItemName;
+                    dataGridMenu.Rows[targetRow].Cells[3].Value = items[i].ItemCategory;
+                    dataGridMenu.Rows[targetRow].Cells[4].Value = items[i].ItemRate;
+                }
+
+            }   
+
         }
 
         private void BtnAddItem_Click(object sender, EventArgs e) {
 
-            if (ValidateText(txtBoxItemCode) && ValidateText(txtBoxItemName) && ValidateText(txtBoxItemPrice)) {
+            FormValidator.Validator.neumericOnlyTextBox = txtBoxItemPrice;
+
+            if (FormValidator.Validator.ValidateText(txtBoxItemCode) && FormValidator.Validator.ValidateText(txtBoxItemName) && FormValidator.Validator.ValidateText(txtBoxItemPrice)) {
 
                 if (!update) {
                     int targetRow = dataGridMenu.Rows.Count - 1;
@@ -76,14 +161,14 @@ namespace CourseWorkAD {
                     dataGridMenu.Rows[targetRow].Cells[0].Value = targetRow + 1;
                     dataGridMenu.Rows[targetRow].Cells[1].Value = txtBoxItemCode.Text;
                     dataGridMenu.Rows[targetRow].Cells[2].Value = txtBoxItemName.Text;
-                    dataGridMenu.Rows[targetRow].Cells[3].Value = ValidateDropDown(dropDownItemCategory);
+                    dataGridMenu.Rows[targetRow].Cells[3].Value = FormValidator.Validator.ValidateDropDown(dropDownItemCategory);
                     dataGridMenu.Rows[targetRow].Cells[4].Value = txtBoxItemPrice.Text;
                     //itemCode = "COD" + ++targetRow;
                     //txtBoxItemCode.Text = itemCode;
                 } else {
                     dataGridMenu.Rows[updateIndex].Cells[1].Value = txtBoxItemCode.Text;
                     dataGridMenu.Rows[updateIndex].Cells[2].Value = txtBoxItemName.Text;
-                    dataGridMenu.Rows[updateIndex].Cells[3].Value = ValidateDropDown(dropDownItemCategory);
+                    dataGridMenu.Rows[updateIndex].Cells[3].Value = FormValidator.Validator.ValidateDropDown(dropDownItemCategory);
                     dataGridMenu.Rows[updateIndex].Cells[4].Value = txtBoxItemPrice.Text;
 
                     txtBoxItemCode.ResetText();
@@ -139,103 +224,6 @@ namespace CourseWorkAD {
 
         }
 
-        private void ProcessCSVFileData(string filePath) {
-
-            try {
-                //Reading cvs file using pre-defined method 
-                TextFieldParser csvReader = new TextFieldParser(filePath);
-
-                //Set delimiter for the reader
-                csvReader.SetDelimiters(new string[] { "," });
-
-                //If fields are enclose in quotation marks use this
-                csvReader.HasFieldsEnclosedInQuotes = true;
-
-                string[] heading = csvReader.ReadFields();
-                if (heading.Length == 4 && heading[0].ToLower().Equals("code") && heading[1].ToLower().Equals("particular") && heading[2].ToLower().Equals("category") && heading[3].ToLower().Equals("price")) {
-                    // Skipping header from the csv file
-                    //csvReader.ReadLine();
-
-                    List<Item> items = new List<Item>();
-
-                    while (!csvReader.EndOfData) {
-                        // Read all fields of current line
-                        string[] fieldData = csvReader.ReadFields();
-
-                        Item item = new Item {
-
-                            //int targetRow = dataGridMenu.Rows.Count - 1;
-                            //dataGridMenu.Rows.Add();
-                            //dataGridMenu.Rows[targetRow].Cells[0].Value = targetRow + 1;
-                            //dataGridMenu.Rows[targetRow].Cells[1].Value = fieldData[0];
-                            //dataGridMenu.Rows[targetRow].Cells[2].Value = fieldData[1];
-                            //dataGridMenu.Rows[targetRow].Cells[3].Value = fieldData[2];
-                            //dataGridMenu.Rows[targetRow].Cells[4].Value = fieldData[3];
-                            //targetRow++;
-
-                            ItemCode = fieldData[0],
-                            ItemName = fieldData[1],
-                            ItemCategory = fieldData[2],
-                            ItemRate = fieldData[3]
-                        };
-
-                        items.Add(item);
-                    }
-
-                    ItemsToSerialize itemsToSerialize = new ItemsToSerialize();
-                    itemsToSerialize.Items = items;
-                    new Serializer().SearilizeItems("ItemsData.dat", itemsToSerialize);
-
-                } else {
-                    MessageBox.Show("Opps ! This might be wrong data.", " Data Mismach", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            } catch (Exception e) {
-                MessageBox.Show(e.Message, " Import CSV File", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private Boolean ValidateText(BunifuMaterialTextbox textBox) {
-
-            if (textBox.Text.Trim() == "") {
-                textBox.ResetText();
-                textBox.HintText = "Empty field !";
-                textBox.HintForeColor = Color.IndianRed;
-                return false;
-            } else {
-                return true;
-            }
-
-        }
-
-        private String ValidateDropDown(BunifuDropdown dropdown) {
-            if (dropdown.selectedIndex == 0) {
-                return "N.A";
-            } else {
-                return dropdown.selectedValue;
-            }
-        }
-
-        private void TextBox_KeyPress(object sender, KeyPressEventArgs e) {
-
-            BunifuMaterialTextbox textBox = (BunifuMaterialTextbox)sender;
-
-            textBox.HintText = "";
-            textBox.HintForeColor = Color.Silver;
-            textBox.ForeColor = Color.Silver;
-
-            if (textBox == txtBoxItemPrice) {
-
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) {
-
-                    textBox.HintText = "Numeric only !";
-                    textBox.HintForeColor = Color.IndianRed;
-                    e.Handled = true;
-                }
-
-            }
-
-        }
-
         private string[] ItemCategory() {
 
             string[] items = {
@@ -267,29 +255,8 @@ namespace CourseWorkAD {
             this.update = true;
         }
 
-        public Dictionary<string, string> ItemCodeName {
-
-            get {
-                Dictionary<string, string> codeName = new Dictionary<string, string>();
-                for (int i = 0; i < dataGridMenu.Rows.Count - 1; i++) {
-                    string code = Convert.ToString(dataGridMenu.Rows[i].Cells[1].Value);
-                    string name = Convert.ToString(dataGridMenu.Rows[i].Cells[2].Value);
-                    codeName.Add(code, name);
-                }
-                return codeName;
-            }
-
-            set {
-                
-                this.itemCodeName = value; 
-            }
-
-        }
-
-        private void BtnAddCategoryItem_Click_1(object sender, EventArgs e) {
-            var first = ItemCodeName.First();
-
-            MessageBox.Show(first.Value, " Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        private void BtnAddCategoryItem_Click_1(object sender, EventArgs e) { 
+            MessageBox.Show("Add Category", " Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 

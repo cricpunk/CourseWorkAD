@@ -9,9 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CourseWorkAD {
+
     public partial class ChartGenerator : UserControl {
+
         public ChartGenerator() {
             InitializeComponent();
         }
+
     }
 }

@@ -360,7 +360,6 @@
             this.PanelAnimator.SetDecoration(this.menuItem, BunifuAnimatorNS.DecorationType.None);
             this.LogoAnimator.SetDecoration(this.menuItem, BunifuAnimatorNS.DecorationType.None);
             this.menuItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuItem.ItemCodeName = ((System.Collections.Generic.Dictionary<string, string>)(resources.GetObject("menuItem.ItemCodeName")));
             this.menuItem.Location = new System.Drawing.Point(380, 51);
             this.menuItem.Name = "menuItem";
             this.menuItem.Size = new System.Drawing.Size(1420, 1049);

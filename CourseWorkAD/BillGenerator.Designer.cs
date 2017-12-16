@@ -23,15 +23,15 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillGenerator));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PnlHomePageContainer = new System.Windows.Forms.Panel();
             this.PnlBillingDetails = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -62,7 +62,11 @@
             this.dataGridBill = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.panel3 = new System.Windows.Forms.Panel();
             this.PnlBillItemSelector = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.Pnl = new System.Windows.Forms.Panel();
+            this.txtRefundAmount = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtReceivedAmount = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtCustomerName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.btnPrintBill = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancelBill = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -75,14 +79,10 @@
             this.dropDownItemcategoryBill = new Bunifu.Framework.UI.BunifuDropdown();
             this.txtItemCodeBill = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.LblBillGeneratorHeading = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtCustomerName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.txtReceivedAmount = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.txtRefundAmount = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.ColSnBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColItemBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColQtyBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColRateBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColQtyBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.COlAmountBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PnlHomePageContainer.SuspendLayout();
             this.PnlBillingDetails.SuspendLayout();
@@ -369,7 +369,7 @@
             this.lblGrandTotal.Name = "lblGrandTotal";
             this.lblGrandTotal.Size = new System.Drawing.Size(119, 23);
             this.lblGrandTotal.TabIndex = 46;
-            this.lblGrandTotal.Text = "1716.00";
+            this.lblGrandTotal.Text = "0.00";
             this.lblGrandTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // bunifuCustomLabel16
@@ -395,7 +395,7 @@
             this.lblServiceCharge.Name = "lblServiceCharge";
             this.lblServiceCharge.Size = new System.Drawing.Size(119, 23);
             this.lblServiceCharge.TabIndex = 44;
-            this.lblServiceCharge.Text = "156.00";
+            this.lblServiceCharge.Text = "0.00";
             this.lblServiceCharge.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblServiceChargeRate
@@ -421,7 +421,7 @@
             this.lblSubTotal.Name = "lblSubTotal";
             this.lblSubTotal.Size = new System.Drawing.Size(119, 23);
             this.lblSubTotal.TabIndex = 42;
-            this.lblSubTotal.Text = "1560.00";
+            this.lblSubTotal.Text = "0.00";
             this.lblSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // bunifuCustomLabel12
@@ -447,7 +447,7 @@
             this.lblTotalAmt.Name = "lblTotalAmt";
             this.lblTotalAmt.Size = new System.Drawing.Size(119, 23);
             this.lblTotalAmt.TabIndex = 40;
-            this.lblTotalAmt.Text = "1560.00";
+            this.lblTotalAmt.Text = "0.00";
             this.lblTotalAmt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // bunifuCustomLabel9
@@ -467,10 +467,10 @@
             // 
             this.dataGridBill.AllowUserToResizeColumns = false;
             this.dataGridBill.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            this.dataGridBill.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            this.dataGridBill.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -479,30 +479,30 @@
             this.dataGridBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridBill.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridBill.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridBill.ColumnHeadersHeight = 30;
             this.dataGridBill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColSnBill,
             this.ColItemBill,
-            this.ColQtyBill,
             this.ColRateBill,
+            this.ColQtyBill,
             this.COlAmountBill});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridBill.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridBill.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridBill.DoubleBuffered = true;
             this.dataGridBill.EnableHeadersVisualStyles = false;
             this.dataGridBill.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
@@ -541,6 +541,14 @@
             this.PnlBillItemSelector.Size = new System.Drawing.Size(617, 988);
             this.PnlBillItemSelector.TabIndex = 2;
             // 
+            // panel9
+            // 
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.Location = new System.Drawing.Point(20, 968);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(577, 20);
+            this.panel9.TabIndex = 27;
+            // 
             // Pnl
             // 
             this.Pnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -555,6 +563,65 @@
             this.Pnl.Name = "Pnl";
             this.Pnl.Size = new System.Drawing.Size(577, 269);
             this.Pnl.TabIndex = 26;
+            // 
+            // txtRefundAmount
+            // 
+            this.txtRefundAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtRefundAmount.Enabled = false;
+            this.txtRefundAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRefundAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtRefundAmount.HintForeColor = System.Drawing.Color.Silver;
+            this.txtRefundAmount.HintText = "Return";
+            this.txtRefundAmount.isPassword = false;
+            this.txtRefundAmount.LineFocusedColor = System.Drawing.Color.Gray;
+            this.txtRefundAmount.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtRefundAmount.LineMouseHoverColor = System.Drawing.Color.Gray;
+            this.txtRefundAmount.LineThickness = 1;
+            this.txtRefundAmount.Location = new System.Drawing.Point(302, 88);
+            this.txtRefundAmount.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtRefundAmount.Name = "txtRefundAmount";
+            this.txtRefundAmount.Size = new System.Drawing.Size(250, 50);
+            this.txtRefundAmount.TabIndex = 29;
+            this.txtRefundAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // txtReceivedAmount
+            // 
+            this.txtReceivedAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtReceivedAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReceivedAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtReceivedAmount.HintForeColor = System.Drawing.Color.Silver;
+            this.txtReceivedAmount.HintText = "Received";
+            this.txtReceivedAmount.isPassword = false;
+            this.txtReceivedAmount.LineFocusedColor = System.Drawing.Color.RoyalBlue;
+            this.txtReceivedAmount.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtReceivedAmount.LineMouseHoverColor = System.Drawing.Color.RoyalBlue;
+            this.txtReceivedAmount.LineThickness = 1;
+            this.txtReceivedAmount.Location = new System.Drawing.Point(25, 88);
+            this.txtReceivedAmount.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtReceivedAmount.Name = "txtReceivedAmount";
+            this.txtReceivedAmount.Size = new System.Drawing.Size(250, 50);
+            this.txtReceivedAmount.TabIndex = 28;
+            this.txtReceivedAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtReceivedAmount.OnValueChanged += new System.EventHandler(this.TxtReceivedAmount_OnValueChanged);
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCustomerName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.txtCustomerName.HintForeColor = System.Drawing.Color.Silver;
+            this.txtCustomerName.HintText = "Customer Name";
+            this.txtCustomerName.isPassword = false;
+            this.txtCustomerName.LineFocusedColor = System.Drawing.Color.RoyalBlue;
+            this.txtCustomerName.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtCustomerName.LineMouseHoverColor = System.Drawing.Color.RoyalBlue;
+            this.txtCustomerName.LineThickness = 1;
+            this.txtCustomerName.Location = new System.Drawing.Point(25, 23);
+            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(0);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(527, 50);
+            this.txtCustomerName.TabIndex = 27;
+            this.txtCustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // btnPrintBill
             // 
@@ -749,7 +816,7 @@
             this.dropDownItemcategoryBill.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dropDownItemcategoryBill.DisabledColor = System.Drawing.Color.Gray;
             this.dropDownItemcategoryBill.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dropDownItemcategoryBill.ForeColor = System.Drawing.Color.White;
+            this.dropDownItemcategoryBill.ForeColor = System.Drawing.Color.Silver;
             this.dropDownItemcategoryBill.Items = new string[] {
         "-----  Select Item  -----",
         "Coke",
@@ -806,81 +873,12 @@
             this.LblBillGeneratorHeading.Text = "B  I  L  L     G  E  N  E  R  A  T  O  R";
             this.LblBillGeneratorHeading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtCustomerName
-            // 
-            this.txtCustomerName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCustomerName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtCustomerName.HintForeColor = System.Drawing.Color.Silver;
-            this.txtCustomerName.HintText = "Customer Name";
-            this.txtCustomerName.isPassword = false;
-            this.txtCustomerName.LineFocusedColor = System.Drawing.Color.RoyalBlue;
-            this.txtCustomerName.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtCustomerName.LineMouseHoverColor = System.Drawing.Color.RoyalBlue;
-            this.txtCustomerName.LineThickness = 1;
-            this.txtCustomerName.Location = new System.Drawing.Point(25, 23);
-            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(0);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(527, 50);
-            this.txtCustomerName.TabIndex = 27;
-            this.txtCustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // txtReceivedAmount
-            // 
-            this.txtReceivedAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtReceivedAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReceivedAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtReceivedAmount.HintForeColor = System.Drawing.Color.Silver;
-            this.txtReceivedAmount.HintText = "Received";
-            this.txtReceivedAmount.isPassword = false;
-            this.txtReceivedAmount.LineFocusedColor = System.Drawing.Color.RoyalBlue;
-            this.txtReceivedAmount.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtReceivedAmount.LineMouseHoverColor = System.Drawing.Color.RoyalBlue;
-            this.txtReceivedAmount.LineThickness = 1;
-            this.txtReceivedAmount.Location = new System.Drawing.Point(25, 88);
-            this.txtReceivedAmount.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.txtReceivedAmount.Name = "txtReceivedAmount";
-            this.txtReceivedAmount.Size = new System.Drawing.Size(250, 50);
-            this.txtReceivedAmount.TabIndex = 28;
-            this.txtReceivedAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtReceivedAmount.OnValueChanged += new System.EventHandler(this.TxtReceivedAmount_OnValueChanged);
-            this.txtReceivedAmount.Enter += new System.EventHandler(this.TxtReceivedAmount_Enter);
-            this.txtReceivedAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtReceivedAmount_KeyPress);
-            // 
-            // txtRefundAmount
-            // 
-            this.txtRefundAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtRefundAmount.Enabled = false;
-            this.txtRefundAmount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRefundAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.txtRefundAmount.HintForeColor = System.Drawing.Color.Silver;
-            this.txtRefundAmount.HintText = "Return";
-            this.txtRefundAmount.isPassword = false;
-            this.txtRefundAmount.LineFocusedColor = System.Drawing.Color.Gray;
-            this.txtRefundAmount.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtRefundAmount.LineMouseHoverColor = System.Drawing.Color.Gray;
-            this.txtRefundAmount.LineThickness = 1;
-            this.txtRefundAmount.Location = new System.Drawing.Point(302, 88);
-            this.txtRefundAmount.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.txtRefundAmount.Name = "txtRefundAmount";
-            this.txtRefundAmount.Size = new System.Drawing.Size(250, 50);
-            this.txtRefundAmount.TabIndex = 29;
-            this.txtRefundAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // panel9
-            // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(20, 968);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(577, 20);
-            this.panel9.TabIndex = 27;
-            // 
             // ColSnBill
             // 
             this.ColSnBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.ColSnBill.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ColSnBill.DefaultCellStyle = dataGridViewCellStyle19;
             this.ColSnBill.FillWeight = 15F;
             this.ColSnBill.HeaderText = "SN";
             this.ColSnBill.Name = "ColSnBill";
@@ -889,42 +887,48 @@
             // ColItemBill
             // 
             this.ColItemBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.ColItemBill.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ColItemBill.DefaultCellStyle = dataGridViewCellStyle20;
             this.ColItemBill.FillWeight = 150F;
             this.ColItemBill.HeaderText = "Particulars";
             this.ColItemBill.Name = "ColItemBill";
             this.ColItemBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // ColQtyBill
-            // 
-            this.ColQtyBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.ColQtyBill.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColQtyBill.FillWeight = 20F;
-            this.ColQtyBill.HeaderText = "Qty";
-            this.ColQtyBill.Name = "ColQtyBill";
-            this.ColQtyBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // ColRateBill
             // 
             this.ColRateBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.ColRateBill.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.Format = "N2";
+            dataGridViewCellStyle21.NullValue = null;
+            dataGridViewCellStyle21.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.ColRateBill.DefaultCellStyle = dataGridViewCellStyle21;
             this.ColRateBill.FillWeight = 25F;
             this.ColRateBill.HeaderText = "Rate";
             this.ColRateBill.Name = "ColRateBill";
             this.ColRateBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // ColQtyBill
+            // 
+            this.ColQtyBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.Format = "N2";
+            dataGridViewCellStyle22.NullValue = null;
+            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.ColQtyBill.DefaultCellStyle = dataGridViewCellStyle22;
+            this.ColQtyBill.FillWeight = 25F;
+            this.ColQtyBill.HeaderText = "Qty";
+            this.ColQtyBill.Name = "ColQtyBill";
+            this.ColQtyBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // COlAmountBill
             // 
             this.COlAmountBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.COlAmountBill.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "N2";
+            dataGridViewCellStyle23.NullValue = null;
+            dataGridViewCellStyle23.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.COlAmountBill.DefaultCellStyle = dataGridViewCellStyle23;
             this.COlAmountBill.FillWeight = 35F;
             this.COlAmountBill.HeaderText = "Amount";
             this.COlAmountBill.Name = "COlAmountBill";
@@ -1001,8 +1005,8 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColSnBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColItemBill;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColQtyBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRateBill;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColQtyBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn COlAmountBill;
     }
 }

@@ -1,4 +1,5 @@
 ﻿namespace CourseWorkAD {
+
     partial class MenuItem {
         /// <summary> 
         /// Required designer variable.
@@ -231,7 +232,7 @@
             this.txtBoxItemPrice.Size = new System.Drawing.Size(213, 43);
             this.txtBoxItemPrice.TabIndex = 23;
             this.txtBoxItemPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtBoxItemPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            this.txtBoxItemPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(FormValidator.Validator.TextBox_KeyPress);
             // 
             // txtBoxItemCode
             // 
@@ -251,7 +252,7 @@
             this.txtBoxItemCode.Size = new System.Drawing.Size(213, 43);
             this.txtBoxItemCode.TabIndex = 22;
             this.txtBoxItemCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtBoxItemCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            this.txtBoxItemCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(FormValidator.Validator.TextBox_KeyPress);
             // 
             // txtBoxItemName
             // 
@@ -271,7 +272,7 @@
             this.txtBoxItemName.Size = new System.Drawing.Size(329, 43);
             this.txtBoxItemName.TabIndex = 21;
             this.txtBoxItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtBoxItemName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            this.txtBoxItemName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(FormValidator.Validator.TextBox_KeyPress);
             // 
             // panel7
             // 

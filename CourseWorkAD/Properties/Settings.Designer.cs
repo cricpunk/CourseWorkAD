@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CourseWorkAD.Properties
+namespace CustomUserControl.Properties
 {
 
 
