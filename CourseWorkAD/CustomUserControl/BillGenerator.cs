@@ -6,36 +6,48 @@ using System.IO;
 using CourseWorkAD.Model;
 using CourseWorkAD.Serialization;
 
+
+
 namespace CourseWorkAD.CustomUserControl {
 
     public partial class BillGenerator : UserControl {
 
+        private System.Windows.Forms.Timer timer = null;
         private string SERVICE_CHARGE = "Service Charge 15%   :";
         private double grandTotal;
+        private List<Item> itemsList;
 
         public BillGenerator() {
-            InitializeComponent();
-            dropDownItemcategoryBill.Items = ItemName();
+
+            InitializeComponent();      
+            lblServiceChargeRate.Text = SERVICE_CHARGE;
+
+            StartTimer();
+
+            this.itemsList = new MenuItem().ITEMDATA;
+
+            dropDownItemcategoryBill.Items = ItemName(this.itemsList);
             dropDownItemcategoryBill.selectedIndex = 0;
-            lblServiceChargeRate.Text =  SERVICE_CHARGE;
+
+        }
+
+        private void StartTimer() {
+            this.timer = new System.Windows.Forms.Timer();
+            this.timer.Interval = 1000;
+            this.timer.Tick += new EventHandler(Timer_Tick);
+            this.timer.Enabled = true;
+        }
+
+        void Timer_Tick(Object sender, EventArgs e) {
+            lblBillDate.Text = DateTime.Now.ToString();
         }
 
         private Dictionary<string, string> MenuItemCodeAndName() {
 
             Dictionary<string, string> itemsAndCode = new Dictionary<string, string>();
 
-            if (File.Exists(MenuItem.dataLocation)) {
-
-                List<Item> items = new List<Item>();
-                ItemsToSerialize itemsToSerialize = new ItemsToSerialize();
-                itemsToSerialize = new Serializer().DeserializeItems("ItemsData.dat");
-
-                items = itemsToSerialize.Items;
-
-                for (int i = 0; i < items.Count; i++) {
-                    itemsAndCode.Add(items[i].ItemCode, items[i].ItemName);
-                }
-
+            for (int i = 0; i < this.itemsList.Count; i++) {
+                itemsAndCode.Add(this.itemsList[i].ItemCode, this.itemsList[i].ItemName);
             }
 
             return itemsAndCode;
@@ -45,33 +57,31 @@ namespace CourseWorkAD.CustomUserControl {
 
             Dictionary<string, string> codeAndRate = new Dictionary<string, string>();
 
-            if (File.Exists(MenuItem.dataLocation)) {
-
-                List<Item> items = new List<Item>();
-                ItemsToSerialize itemsToSerialize = new ItemsToSerialize();
-                itemsToSerialize = new Serializer().DeserializeItems("ItemsData.dat");
-
-                items = itemsToSerialize.Items;
-
-                for (int i = 0; i < items.Count; i++) {
-                    codeAndRate.Add(items[i].ItemCode, items[i].ItemRate);
-                }
-
+            for (int i = 0; i < this.itemsList.Count; i++) {
+                codeAndRate.Add(this.itemsList[i].ItemCode, this.itemsList[i].ItemRate);
             }
 
             return codeAndRate;
         }
 
-        private string[] ItemName() {
+        private string[] ItemName(List<Item> itemsList) {
 
-            string[] itemName = new string[MenuItemCodeAndName().Count+1];
-            itemName[0] = "--- Select Item ---";
+            if (itemsList != null) {
 
-            for (int i = 0; i < MenuItemCodeAndName().Count; i++) {
-                itemName[i+1] = MenuItemCodeAndName()[MenuItemCodeAndName().Keys.ElementAt(i)];
+                string[] itemName = new string[itemsList.Count + 1];
+                itemName[0] = "--- Select Item ---";
+
+                for (int i = 0; i < itemsList.Count; i++) {
+                    itemName[i+1] = itemsList[i].ItemName;
+                }
+
+                //.Show(Convert.ToString(itemName.Length), " Bill generator", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return itemName;
+            }  else {
+                return null;
             }
 
-            return itemName;
         }
 
         private void TxtItemCodeBill_KeyPress(object sender, KeyPressEventArgs e) {
@@ -83,8 +93,8 @@ namespace CourseWorkAD.CustomUserControl {
 
         private void BtnAddItemInttoBill_Click(object sender, EventArgs e) {
 
-            FormValidator.Validator.neumericOnlyTextBox1 = txtItemRateBill;
-            FormValidator.Validator.neumericOnlyTextBox = txtItemQtyBill;
+            FormValidator.Validator.neumericOnlyTextBoxRate = txtItemRateBill;
+            FormValidator.Validator.neumericOnlyTextBoxQty = txtItemQtyBill;
 
             if (FormValidator.Validator.ValidateText(txtItemCodeBill) && FormValidator.Validator.ValidateText(txtItemRateBill) && FormValidator.Validator.ValidateText(txtItemQtyBill)) {
 
@@ -125,7 +135,7 @@ namespace CourseWorkAD.CustomUserControl {
         }
 
         private void BtnCancelBill_Click(object sender, EventArgs e) {
-
+            //MessageBox.Show(Convert.ToString(ItemList.Count), " Bill generator", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void TxtItemCodeBill_OnValueChanged(object sender, EventArgs e) {
@@ -152,7 +162,6 @@ namespace CourseWorkAD.CustomUserControl {
             }
 
         }
-
 
     }
 }

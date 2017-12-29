@@ -293,7 +293,7 @@ namespace CourseWorkAD
             this.BtnSystemClose.Image = ((System.Drawing.Image)(resources.GetObject("BtnSystemClose.Image")));
             this.BtnSystemClose.ImageActive = null;
             this.BtnSystemClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnSystemClose.Location = new System.Drawing.Point(1759, 14);
+            this.BtnSystemClose.Location = new System.Drawing.Point(1354, 14);
             this.BtnSystemClose.Margin = new System.Windows.Forms.Padding(5);
             this.BtnSystemClose.Name = "BtnSystemClose";
             this.BtnSystemClose.Size = new System.Drawing.Size(20, 20);
@@ -359,8 +359,8 @@ namespace CourseWorkAD
             // 
             // menuItem
             // 
-            this.PanelAnimator.SetDecoration(this.menuItem, BunifuAnimatorNS.DecorationType.None);
             this.LogoAnimator.SetDecoration(this.menuItem, BunifuAnimatorNS.DecorationType.None);
+            this.PanelAnimator.SetDecoration(this.menuItem, BunifuAnimatorNS.DecorationType.None);
             this.menuItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuItem.Location = new System.Drawing.Point(380, 51);
             this.menuItem.Name = "menuItem";

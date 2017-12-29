@@ -24,15 +24,15 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillGenerator));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PnlHomePageContainer = new System.Windows.Forms.Panel();
             this.PnlBillingDetails = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -61,6 +61,11 @@
             this.lblTotalAmt = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel9 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.dataGridBill = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.ColSnBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColItemBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColRateBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColQtyBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COlAmountBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.PnlBillItemSelector = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -80,11 +85,6 @@
             this.dropDownItemcategoryBill = new Bunifu.Framework.UI.BunifuDropdown();
             this.txtItemCodeBill = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.LblBillGeneratorHeading = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.ColSnBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColItemBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColRateBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColQtyBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COlAmountBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PnlHomePageContainer.SuspendLayout();
             this.PnlBillingDetails.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -468,10 +468,10 @@
             // 
             this.dataGridBill.AllowUserToResizeColumns = false;
             this.dataGridBill.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            this.dataGridBill.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            this.dataGridBill.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -480,15 +480,15 @@
             this.dataGridBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridBill.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridBill.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridBill.ColumnHeadersHeight = 30;
             this.dataGridBill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColSnBill,
@@ -496,14 +496,14 @@
             this.ColRateBill,
             this.ColQtyBill,
             this.COlAmountBill});
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridBill.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridBill.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridBill.DoubleBuffered = true;
             this.dataGridBill.EnableHeadersVisualStyles = false;
             this.dataGridBill.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
@@ -518,6 +518,67 @@
             this.dataGridBill.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridBill.Size = new System.Drawing.Size(720, 518);
             this.dataGridBill.TabIndex = 14;
+            // 
+            // ColSnBill
+            // 
+            this.ColSnBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ColSnBill.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ColSnBill.FillWeight = 15F;
+            this.ColSnBill.HeaderText = "SN";
+            this.ColSnBill.Name = "ColSnBill";
+            this.ColSnBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ColItemBill
+            // 
+            this.ColItemBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ColItemBill.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColItemBill.FillWeight = 150F;
+            this.ColItemBill.HeaderText = "Particulars";
+            this.ColItemBill.Name = "ColItemBill";
+            this.ColItemBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ColRateBill
+            // 
+            this.ColRateBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.ColRateBill.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColRateBill.FillWeight = 25F;
+            this.ColRateBill.HeaderText = "Rate";
+            this.ColRateBill.Name = "ColRateBill";
+            this.ColRateBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ColQtyBill
+            // 
+            this.ColQtyBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.ColQtyBill.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ColQtyBill.FillWeight = 25F;
+            this.ColQtyBill.HeaderText = "Qty";
+            this.ColQtyBill.Name = "ColQtyBill";
+            this.ColQtyBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // COlAmountBill
+            // 
+            this.COlAmountBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.COlAmountBill.DefaultCellStyle = dataGridViewCellStyle7;
+            this.COlAmountBill.FillWeight = 35F;
+            this.COlAmountBill.HeaderText = "Amount";
+            this.COlAmountBill.Name = "COlAmountBill";
+            this.COlAmountBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // panel3
             // 
@@ -819,17 +880,9 @@
             this.dropDownItemcategoryBill.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dropDownItemcategoryBill.ForeColor = System.Drawing.Color.Silver;
             this.dropDownItemcategoryBill.Items = new string[] {
-        "-----  Select Item  -----",
-        "Coke",
-        "Burger",
-        "Fanta",
-        "Pizza",
-        "Samosa",
-        "Nepali Khana",
-        "Chowmin",
-        "Chicken Momo",
-        "Pasta",
-        "Pakauda"};
+        "one",
+        "two",
+        "three"};
             this.dropDownItemcategoryBill.Location = new System.Drawing.Point(297, 24);
             this.dropDownItemcategoryBill.Margin = new System.Windows.Forms.Padding(0);
             this.dropDownItemcategoryBill.Name = "dropDownItemcategoryBill";
@@ -873,67 +926,6 @@
             this.LblBillGeneratorHeading.TabIndex = 1;
             this.LblBillGeneratorHeading.Text = "B  I  L  L     G  E  N  E  R  A  T  O  R";
             this.LblBillGeneratorHeading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ColSnBill
-            // 
-            this.ColSnBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.ColSnBill.DefaultCellStyle = dataGridViewCellStyle19;
-            this.ColSnBill.FillWeight = 15F;
-            this.ColSnBill.HeaderText = "SN";
-            this.ColSnBill.Name = "ColSnBill";
-            this.ColSnBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ColItemBill
-            // 
-            this.ColItemBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.ColItemBill.DefaultCellStyle = dataGridViewCellStyle20;
-            this.ColItemBill.FillWeight = 150F;
-            this.ColItemBill.HeaderText = "Particulars";
-            this.ColItemBill.Name = "ColItemBill";
-            this.ColItemBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ColRateBill
-            // 
-            this.ColRateBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle21.Format = "N2";
-            dataGridViewCellStyle21.NullValue = null;
-            dataGridViewCellStyle21.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.ColRateBill.DefaultCellStyle = dataGridViewCellStyle21;
-            this.ColRateBill.FillWeight = 25F;
-            this.ColRateBill.HeaderText = "Rate";
-            this.ColRateBill.Name = "ColRateBill";
-            this.ColRateBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ColQtyBill
-            // 
-            this.ColQtyBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle22.Format = "N2";
-            dataGridViewCellStyle22.NullValue = null;
-            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.ColQtyBill.DefaultCellStyle = dataGridViewCellStyle22;
-            this.ColQtyBill.FillWeight = 25F;
-            this.ColQtyBill.HeaderText = "Qty";
-            this.ColQtyBill.Name = "ColQtyBill";
-            this.ColQtyBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // COlAmountBill
-            // 
-            this.COlAmountBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.Format = "N2";
-            dataGridViewCellStyle23.NullValue = null;
-            dataGridViewCellStyle23.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.COlAmountBill.DefaultCellStyle = dataGridViewCellStyle23;
-            this.COlAmountBill.FillWeight = 35F;
-            this.COlAmountBill.HeaderText = "Amount";
-            this.COlAmountBill.Name = "COlAmountBill";
-            this.COlAmountBill.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // BillGenerator
             // 

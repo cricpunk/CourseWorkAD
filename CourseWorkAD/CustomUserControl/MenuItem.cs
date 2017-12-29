@@ -15,15 +15,23 @@ namespace CourseWorkAD.CustomUserControl {
         private ComponentResourceManager resources;
         private Boolean update = false;
         private int updateIndex;
+        private static List<Item> itemList;
+        internal static List<Item> ItemList { get => itemList; set => itemList = value; }
         public static string dataLocation = Application.StartupPath + @"\ItemsData.dat";
-
 
         public MenuItem() {
             InitializeComponent();
+            FormValidator.Validator.neumericOnlyTextBoxRate = txtBoxItemPrice;
             resources = new ComponentResourceManager(typeof(MenuItem));
             dropDownItemCategory.Items = ItemCategory();
             dropDownItemCategory.selectedIndex = 0;
-            InsertIntoTable();
+            itemList = new List<Item>();
+            InsertSearilizedDataIntoTable();
+        }
+
+        internal List<Item> ITEMDATA {
+            get { return itemList; }
+            set { itemList = value; }
         }
 
         private void BtnImport_Click(object sender, EventArgs e) {
@@ -54,18 +62,18 @@ namespace CourseWorkAD.CustomUserControl {
 
             }
 
-        }
+        }  
 
         private void BtnAddImportData_Click(object sender, EventArgs e) {
 
             if (txtBoxFileLocation.Text == "") {
                 MessageBox.Show("There is no imported file to add into table.", " Missing file", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else {
+
                 if(ProcessCSVFileData(txtBoxFileLocation.Text)) {
                     txtBoxFileLocation.ResetText();
-                    dataGridMenu.Rows.Clear();
-                    InsertIntoTable();
-                }               
+                }  
+                        
             }
             
         }
@@ -89,10 +97,8 @@ namespace CourseWorkAD.CustomUserControl {
 
                 if (heading.Length == 4 && heading[0].ToLower().Equals("code") && heading[1].ToLower().Equals("particular") && heading[2].ToLower().Equals("category") && heading[3].ToLower().Equals("price")) {
 
-                    File.Delete(dataLocation);
-
-                    // List which store imported items
-                    List<Item> items = new List<Item>();
+                    dataGridMenu.Rows.Clear();
+                    ItemList.Clear();
 
                     while (!csvReader.EndOfData) {
                         // Read all fields of current line
@@ -105,16 +111,13 @@ namespace CourseWorkAD.CustomUserControl {
                             ItemRate = fieldData[3]
                         };
 
-                        items.Add(item);
+                        ItemList.Add(item);
+                        InsertDataIntoTable(item);
+
                     }
 
-                    ItemsToSerialize itemsToSerialize = new ItemsToSerialize {
-                        Items = items
-                    };
-                    new Serializer().SearilizeItems("ItemsData.dat", itemsToSerialize);
-
                     return true;
-                   
+
                 } else {
                     MessageBox.Show("Opps ! This might be wrong data.", " Data Mismach", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtBoxFileLocation.ResetText();
@@ -126,61 +129,93 @@ namespace CourseWorkAD.CustomUserControl {
             }
         }
 
-        private void InsertIntoTable() {
+        private void InsertDataIntoTable(Item item) {
+
+            int targetRow = dataGridMenu.Rows.Count - 1;
+            dataGridMenu.Rows.Add();
+            dataGridMenu.Rows[targetRow].Cells[0].Value = itemList.IndexOf(item) + 1;
+            dataGridMenu.Rows[targetRow].Cells[1].Value = item.ItemCode;
+            dataGridMenu.Rows[targetRow].Cells[2].Value = item.ItemName;
+            dataGridMenu.Rows[targetRow].Cells[3].Value = item.ItemCategory;
+            dataGridMenu.Rows[targetRow].Cells[4].Value = item.ItemRate;
+
+        }
+
+        private void InsertSearilizedDataIntoTable() {
 
             if (File.Exists(dataLocation)) {
 
-                List<Item> items = new List<Item>();
                 ItemsToSerialize itemsToSerialize = new ItemsToSerialize();
                 itemsToSerialize = new Serializer().DeserializeItems("ItemsData.dat");
 
-                items = itemsToSerialize.Items;
+                itemList = itemsToSerialize.Items;
 
-                for (int i = 0; i < items.Count; i++) {
-                    int targetRow = dataGridMenu.Rows.Count - 1;
-                    dataGridMenu.Rows.Add();
-                    dataGridMenu.Rows[targetRow].Cells[0].Value = targetRow + 1;
-                    dataGridMenu.Rows[targetRow].Cells[1].Value = items[i].ItemCode;
-                    dataGridMenu.Rows[targetRow].Cells[2].Value = items[i].ItemName;
-                    dataGridMenu.Rows[targetRow].Cells[3].Value = items[i].ItemCategory;
-                    dataGridMenu.Rows[targetRow].Cells[4].Value = items[i].ItemRate;
+                for (int i = 0; i < itemList.Count; i++) {
+                    InsertDataIntoTable(ItemList[i]);
                 }
 
-            }   
+            }
+
+        }
+
+        private void DataGridMenu_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e) {
+
+            this.updateIndex = e.RowIndex;
+            txtBoxItemCode.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[1].Value);
+            txtBoxItemName.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[2].Value);
+            txtBoxItemPrice.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[4].Value);
+            //txtBoxItemCode.Text = Convert.ToString(dataGridMenu.Rows[selectedIndex].Cells[3].Value);
+            btnAddItem.Text = "U P D A T E";
+            btnAddItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Iconimage")));
+            this.update = true;
 
         }
 
         private void BtnAddItem_Click(object sender, EventArgs e) {
 
-            FormValidator.Validator.neumericOnlyTextBox = txtBoxItemPrice;
+            FormValidator.Validator.neumericOnlyTextBoxRate = txtBoxItemPrice;
 
             if (FormValidator.Validator.ValidateText(txtBoxItemCode) && FormValidator.Validator.ValidateText(txtBoxItemName) && FormValidator.Validator.ValidateText(txtBoxItemPrice)) {
 
                 if (!update) {
-                    int targetRow = dataGridMenu.Rows.Count - 1;
-                    dataGridMenu.Rows.Add();
-                    dataGridMenu.Rows[targetRow].Cells[0].Value = targetRow + 1;
-                    dataGridMenu.Rows[targetRow].Cells[1].Value = txtBoxItemCode.Text;
-                    dataGridMenu.Rows[targetRow].Cells[2].Value = txtBoxItemName.Text;
-                    dataGridMenu.Rows[targetRow].Cells[3].Value = FormValidator.Validator.ValidateDropDown(dropDownItemCategory);
-                    dataGridMenu.Rows[targetRow].Cells[4].Value = txtBoxItemPrice.Text;
-                    //itemCode = "COD" + ++targetRow;
-                    //txtBoxItemCode.Text = itemCode;
-                } else {
-                    dataGridMenu.Rows[updateIndex].Cells[1].Value = txtBoxItemCode.Text;
-                    dataGridMenu.Rows[updateIndex].Cells[2].Value = txtBoxItemName.Text;
-                    dataGridMenu.Rows[updateIndex].Cells[3].Value = FormValidator.Validator.ValidateDropDown(dropDownItemCategory);
-                    dataGridMenu.Rows[updateIndex].Cells[4].Value = txtBoxItemPrice.Text;
 
-                    txtBoxItemCode.ResetText();
-                    txtBoxItemName.ResetText();
-                    txtBoxItemPrice.ResetText();
+                    // ADD ITEM
+                    Item item = new Item {
+                        ItemCode = txtBoxItemCode.Text,
+                        ItemName = txtBoxItemName.Text,
+                        ItemCategory = FormValidator.Validator.ValidateDropDown(dropDownItemCategory),
+                        ItemRate = txtBoxItemPrice.Text
+                    };
+
+                    itemList.Add(item);
+                    InsertDataIntoTable(item);
+                    ClearFields();
+
+                } else {
+
+                    // UPDATE ITEM
+                    Item editItem = itemList[updateIndex];
+
+                    dataGridMenu.Rows[updateIndex].Cells[1].Value = (editItem.ItemCode = txtBoxItemCode.Text);
+                    dataGridMenu.Rows[updateIndex].Cells[2].Value = (editItem.ItemName = txtBoxItemName.Text);
+                    dataGridMenu.Rows[updateIndex].Cells[3].Value = (editItem.ItemCategory = FormValidator.Validator.ValidateDropDown(dropDownItemCategory));
+                    dataGridMenu.Rows[updateIndex].Cells[4].Value = (editItem.ItemRate = txtBoxItemPrice.Text);
+
+                    ClearFields();
                     btnAddItem.ButtonText = "A D D   I T E M";
                     btnAddItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAddItem.Iconimage")));
                 }
 
             }
-            //targetRow++;
+
+        }
+
+        private void ClearFields() {
+
+            txtBoxItemCode.ResetText();
+            txtBoxItemName.ResetText();
+            txtBoxItemPrice.ResetText();
+            dropDownItemCategory.selectedIndex = 0;
 
         }
 
@@ -204,6 +239,7 @@ namespace CourseWorkAD.CustomUserControl {
 
                     // Looping through all selected rows and remove them
                     foreach (DataGridViewRow rows in dataGridMenu.SelectedRows) {
+                        itemList.RemoveAt(rows.Index);
                         dataGridMenu.Rows.RemoveAt(rows.Index);
                     }
 
@@ -245,20 +281,10 @@ namespace CourseWorkAD.CustomUserControl {
             txtBoxFileLocation.ResetText();
         }
 
-        private void DataGridMenu_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e) {
-            this.updateIndex = e.RowIndex;
-            txtBoxItemCode.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[1].Value);
-            txtBoxItemName.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[2].Value);
-            txtBoxItemPrice.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[4].Value);
-            //txtBoxItemCode.Text = Convert.ToString(dataGridMenu.Rows[selectedIndex].Cells[3].Value);
-            btnAddItem.Text = "U P D A T E";
-            btnAddItem.Iconimage = ((Image)(resources.GetObject("btnUpdateMenuItem.Iconimage")));
-            this.update = true;
-        }
-
         private void BtnAddCategoryItem_Click_1(object sender, EventArgs e) { 
             MessageBox.Show("Add Category", " Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
     }
 
 }

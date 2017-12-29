@@ -7,8 +7,8 @@ namespace CourseWorkAD.FormValidator {
 
     class Validator {
 
-        public static object neumericOnlyTextBox;
-        public static object neumericOnlyTextBox1;
+        public static object neumericOnlyTextBoxRate;
+        public static object neumericOnlyTextBoxQty;
 
         public static Boolean ValidateText(BunifuMaterialTextbox textBox) {
 
@@ -39,7 +39,7 @@ namespace CourseWorkAD.FormValidator {
             textBox.HintForeColor = Color.Silver;
             textBox.ForeColor = Color.Silver;
 
-            if (sender.Equals(neumericOnlyTextBox) || sender.Equals(neumericOnlyTextBox1)) {
+            if (sender.Equals(neumericOnlyTextBoxRate) || sender.Equals(neumericOnlyTextBoxQty)) {
 
                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) {
 
