@@ -7,15 +7,17 @@ using CourseWorkAD.Model;
 using CourseWorkAD.Serialization;
 
 
-
 namespace CourseWorkAD.CustomUserControl {
 
     public partial class BillGenerator : UserControl {
 
+        public static string revenueDataLocation = Application.StartupPath + @"\RevenuesData.dat";
         private System.Windows.Forms.Timer timer = null;
         private string SERVICE_CHARGE = "Service Charge 15%   :";
         private double grandTotal;
         private List<Item> itemsList;
+        private static Dictionary<string, int> totalSalesCollection = new Dictionary<string, int>();
+        internal static Dictionary<string, int> TotalSalesCollection { get => totalSalesCollection; set => totalSalesCollection = value; }
 
         public BillGenerator() {
 
@@ -29,11 +31,27 @@ namespace CourseWorkAD.CustomUserControl {
             dropDownItemcategoryBill.Items = ItemName(this.itemsList);
             dropDownItemcategoryBill.selectedIndex = 0;
 
+            DeserializeTotalSalesCollection();
+
+        }
+
+        private void DeserializeTotalSalesCollection() {
+
+            if (File.Exists(revenueDataLocation)) {
+
+                SerializeItem serializeItem = new SerializeItem();
+                serializeItem = new Serializer().DeserializeItems("RevenuesData.dat");
+
+                totalSalesCollection = serializeItem.TotalSalesCollection;
+
+            }
+
         }
 
         private void StartTimer() {
-            this.timer = new System.Windows.Forms.Timer();
-            this.timer.Interval = 1000;
+            this.timer = new Timer {
+                Interval = 1000
+            };
             this.timer.Tick += new EventHandler(Timer_Tick);
             this.timer.Enabled = true;
         }
@@ -126,7 +144,25 @@ namespace CourseWorkAD.CustomUserControl {
                 txtItemRateBill.ResetText();
                 txtItemQtyBill.ResetText();
 
+                string itemName = dataGridBill.Rows[targetRow].Cells[1].Value.ToString();
+                int itemPrice = Convert.ToInt32(dataGridBill.Rows[targetRow].Cells[4].Value);
+
+                RecordTotalSales(itemName, itemPrice);
+
+                //MessageBox.Show(itemName + " " + Convert.ToString(totalSalesofSingleItem[itemName]), " Total sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show(Convert.ToString(TotalSalesCollection.Count), " Total sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show(Convert.ToString(TotalSalesCollection[0][itemName]), " Total sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+        }
+
+        private void RecordTotalSales(string itemName, int itemPrice) {
+
+            if(totalSalesCollection.ContainsKey(itemName)) {
+                totalSalesCollection[itemName] += itemPrice;              
+            } else {
+                totalSalesCollection.Add(itemName, itemPrice);
+            }         
 
         }
 

@@ -11,7 +11,7 @@ namespace CourseWorkAD.Serialization {
 
         public Serializer() { }
 
-        public void SearilizeItems(string fileName, ItemsToSerialize items) {
+        public void SearilizeItems(string fileName, SerializeItem items) {
 
             stream = File.Open(fileName, FileMode.Create);
 
@@ -25,20 +25,22 @@ namespace CourseWorkAD.Serialization {
 
         }
 
-        public ItemsToSerialize DeserializeItems(string fileName) {
+        public SerializeItem DeserializeItems(string fileName) {
 
-            ItemsToSerialize itemsToSerialize;
+            SerializeItem serializeItem;
 
             formatter = new BinaryFormatter();
 
             stream = File.Open(fileName, FileMode.Open);
 
-            itemsToSerialize = (ItemsToSerialize)formatter.Deserialize(stream);
+            serializeItem = (SerializeItem)formatter.Deserialize(stream);
 
             stream.Close();
 
-            return itemsToSerialize;
+            return serializeItem;
+            
         }
+
     }
 
 }

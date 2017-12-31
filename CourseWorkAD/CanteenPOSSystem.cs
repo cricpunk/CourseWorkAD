@@ -15,14 +15,24 @@ namespace CourseWorkAD {
 
         private void BtnSystemClose_Click(object sender, EventArgs e) {
 
-            if (File.Exists(CustomUserControl.MenuItem.dataLocation)) {
-                File.Delete(CustomUserControl.MenuItem.dataLocation);
-                new Serializer().SearilizeItems("ItemsData.dat", new Model.ItemsToSerialize { Items = CustomUserControl.MenuItem.ItemList });
-            } else {
-                new Serializer().SearilizeItems("ItemsData.dat", new Model.ItemsToSerialize { Items = CustomUserControl.MenuItem.ItemList });
-            }
+            Model.SerializeItem serializeItem = new Model.SerializeItem { Items = CustomUserControl.MenuItem.ItemList };
+            Model.SerializeItem revenueToSerialize = new Model.SerializeItem { TotalSalesCollection = CustomUserControl.BillGenerator.TotalSalesCollection };
+
+            SerializeThis(CustomUserControl.MenuItem.dataLocation, "ItemsData.dat", serializeItem);
+            SerializeThis(CustomUserControl.BillGenerator.revenueDataLocation, "RevenuesData.dat", revenueToSerialize);
 
             this.Close();
+        }
+
+        private void SerializeThis(string path, string fileName, Model.SerializeItem serializeItem) {
+
+            if (File.Exists(path)) {
+                File.Delete(path);
+                new Serializer().SearilizeItems(fileName, serializeItem);
+            } else {
+                new Serializer().SearilizeItems(fileName, serializeItem);
+            }
+
         }
 
         private void BtnHamburger_Click(object sender, EventArgs e) {

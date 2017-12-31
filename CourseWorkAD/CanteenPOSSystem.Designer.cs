@@ -106,7 +106,7 @@ namespace CourseWorkAD
             this.BtnGenerateBillSideBar.IconVisible = true;
             this.BtnGenerateBillSideBar.IconZoom = 50D;
             this.BtnGenerateBillSideBar.IsTab = true;
-            this.BtnGenerateBillSideBar.Location = new System.Drawing.Point(0, 280);
+            this.BtnGenerateBillSideBar.Location = new System.Drawing.Point(0, 170);
             this.BtnGenerateBillSideBar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnGenerateBillSideBar.Name = "BtnGenerateBillSideBar";
             this.BtnGenerateBillSideBar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
@@ -144,7 +144,7 @@ namespace CourseWorkAD
             this.BtnChartSideBar.IconVisible = true;
             this.BtnChartSideBar.IconZoom = 45D;
             this.BtnChartSideBar.IsTab = true;
-            this.BtnChartSideBar.Location = new System.Drawing.Point(0, 225);
+            this.BtnChartSideBar.Location = new System.Drawing.Point(0, 280);
             this.BtnChartSideBar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnChartSideBar.Name = "BtnChartSideBar";
             this.BtnChartSideBar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
@@ -182,7 +182,7 @@ namespace CourseWorkAD
             this.BtnMenuSideBar.IconVisible = true;
             this.BtnMenuSideBar.IconZoom = 45D;
             this.BtnMenuSideBar.IsTab = true;
-            this.BtnMenuSideBar.Location = new System.Drawing.Point(0, 170);
+            this.BtnMenuSideBar.Location = new System.Drawing.Point(0, 225);
             this.BtnMenuSideBar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMenuSideBar.Name = "BtnMenuSideBar";
             this.BtnMenuSideBar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));

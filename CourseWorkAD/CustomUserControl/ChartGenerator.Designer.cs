@@ -24,20 +24,19 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PnlHomePageContainer = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.pcRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.clbSoldItems = new System.Windows.Forms.CheckedListBox();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.PnlHomePageContainer.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcRevenue)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlHomePageContainer
@@ -52,6 +51,65 @@
             this.PnlHomePageContainer.Size = new System.Drawing.Size(1420, 1053);
             this.PnlHomePageContainer.TabIndex = 7;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.panel2.Controls.Add(this.pcRevenue);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 65);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1020, 988);
+            this.panel2.TabIndex = 4;
+            // 
+            // pcRevenue
+            // 
+            this.pcRevenue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pcRevenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            chartArea2.Name = "ChartArea1";
+            this.pcRevenue.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.pcRevenue.Legends.Add(legend2);
+            this.pcRevenue.Location = new System.Drawing.Point(22, 163);
+            this.pcRevenue.Name = "pcRevenue";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "revenue";
+            this.pcRevenue.Series.Add(series2);
+            this.pcRevenue.Size = new System.Drawing.Size(975, 801);
+            this.pcRevenue.TabIndex = 3;
+            this.pcRevenue.Text = "chart1";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            this.panel1.Controls.Add(this.clbSoldItems);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(1020, 65);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(400, 988);
+            this.panel1.TabIndex = 3;
+            // 
+            // clbSoldItems
+            // 
+            this.clbSoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.clbSoldItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.clbSoldItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clbSoldItems.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clbSoldItems.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clbSoldItems.ForeColor = System.Drawing.Color.Silver;
+            this.clbSoldItems.FormattingEnabled = true;
+            this.clbSoldItems.Location = new System.Drawing.Point(16, 163);
+            this.clbSoldItems.Margin = new System.Windows.Forms.Padding(0);
+            this.clbSoldItems.Name = "clbSoldItems";
+            this.clbSoldItems.Size = new System.Drawing.Size(369, 756);
+            this.clbSoldItems.TabIndex = 1;
+            this.clbSoldItems.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ClbSoldItems_ItemCheck);
+            // 
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
@@ -65,68 +123,6 @@
             this.bunifuCustomLabel1.Text = "D  A  T  A     A  N  A  L  Y  Z  E  R";
             this.bunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.panel1.Controls.Add(this.checkedListBox1);
-            this.panel1.Controls.Add(this.bunifuCheckbox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1020, 65);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 988);
-            this.panel1.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.panel2.Controls.Add(this.chart1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 65);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1020, 988);
-            this.panel2.TabIndex = 4;
-            // 
-            // chart1
-            // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(188, 221);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(644, 547);
-            this.chart1.TabIndex = 3;
-            this.chart1.Text = "chart1";
-            // 
-            // bunifuCheckbox1
-            // 
-            this.bunifuCheckbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
-            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox1.Checked = true;
-            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
-            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox1.Location = new System.Drawing.Point(29, 104);
-            this.bunifuCheckbox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
-            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox1.TabIndex = 0;
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(35, 163);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(304, 395);
-            this.checkedListBox1.TabIndex = 1;
-            // 
             // ChartGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -135,9 +131,9 @@
             this.Name = "ChartGenerator";
             this.Size = new System.Drawing.Size(1420, 1053);
             this.PnlHomePageContainer.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcRevenue)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -147,9 +143,8 @@
         private System.Windows.Forms.Panel PnlHomePageContainer;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart pcRevenue;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox1;
+        private System.Windows.Forms.CheckedListBox clbSoldItems;
     }
 }

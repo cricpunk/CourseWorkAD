@@ -26,7 +26,7 @@ namespace CourseWorkAD.CustomUserControl {
             dropDownItemCategory.Items = ItemCategory();
             dropDownItemCategory.selectedIndex = 0;
             itemList = new List<Item>();
-            InsertSearilizedDataIntoTable();
+            InsertSerializeDataIntoTable();
         }
 
         internal List<Item> ITEMDATA {
@@ -141,14 +141,16 @@ namespace CourseWorkAD.CustomUserControl {
 
         }
 
-        private void InsertSearilizedDataIntoTable() {
+        private void InsertSerializeDataIntoTable() {
 
             if (File.Exists(dataLocation)) {
 
-                ItemsToSerialize itemsToSerialize = new ItemsToSerialize();
-                itemsToSerialize = new Serializer().DeserializeItems("ItemsData.dat");
+                //ItemsToSerialize itemsToSerialize = new ItemsToSerialize();
 
-                itemList = itemsToSerialize.Items;
+                SerializeItem serializeItem = new SerializeItem();
+                serializeItem = new Serializer().DeserializeItems("ItemsData.dat");
+
+                itemList = serializeItem.Items;
 
                 for (int i = 0; i < itemList.Count; i++) {
                     InsertDataIntoTable(ItemList[i]);
@@ -285,6 +287,16 @@ namespace CourseWorkAD.CustomUserControl {
             MessageBox.Show("Add Category", " Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void BtnCancelItem_Click(object sender, EventArgs e) {
+            txtBoxItemCode.ResetText();
+            txtBoxItemName.ResetText();
+            txtBoxItemPrice.ResetText();
+            dropDownItemCategory.selectedIndex = 0;
+            
+            if(update) {
+                dataGridMenu.ClearSelection();
+            }
+        }
     }
 
 }

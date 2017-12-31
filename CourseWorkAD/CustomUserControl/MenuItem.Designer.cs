@@ -24,16 +24,16 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuItem));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PnlMenuItemContainer = new System.Windows.Forms.Panel();
             this.pnlHomeTextField = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -66,6 +66,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelMenuGeneratorHeading = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnCancelItem = new Bunifu.Framework.UI.BunifuFlatButton();
             this.PnlMenuItemContainer.SuspendLayout();
             this.pnlHomeTextField.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -114,6 +115,7 @@
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.panel8.Controls.Add(this.btnCancelItem);
             this.panel8.Controls.Add(this.btnAddCategoryItem);
             this.panel8.Controls.Add(this.dropDownItemCategory);
             this.panel8.Controls.Add(this.btnAddItem);
@@ -200,14 +202,14 @@
             this.btnAddItem.IconVisible = true;
             this.btnAddItem.IconZoom = 45D;
             this.btnAddItem.IsTab = false;
-            this.btnAddItem.Location = new System.Drawing.Point(356, 175);
+            this.btnAddItem.Location = new System.Drawing.Point(385, 175);
             this.btnAddItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Normalcolor = System.Drawing.Color.RoyalBlue;
             this.btnAddItem.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.btnAddItem.OnHoverTextColor = System.Drawing.Color.Silver;
             this.btnAddItem.selected = false;
-            this.btnAddItem.Size = new System.Drawing.Size(210, 48);
+            this.btnAddItem.Size = new System.Drawing.Size(181, 48);
             this.btnAddItem.TabIndex = 26;
             this.btnAddItem.Text = "A D D   I T E M";
             this.btnAddItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -233,7 +235,6 @@
             this.txtBoxItemPrice.Size = new System.Drawing.Size(213, 43);
             this.txtBoxItemPrice.TabIndex = 23;
             this.txtBoxItemPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtBoxItemPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(FormValidator.Validator.TextBox_KeyPress);
             // 
             // txtBoxItemCode
             // 
@@ -253,7 +254,6 @@
             this.txtBoxItemCode.Size = new System.Drawing.Size(213, 43);
             this.txtBoxItemCode.TabIndex = 22;
             this.txtBoxItemCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtBoxItemCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(FormValidator.Validator.TextBox_KeyPress);
             // 
             // txtBoxItemName
             // 
@@ -273,7 +273,6 @@
             this.txtBoxItemName.Size = new System.Drawing.Size(329, 43);
             this.txtBoxItemName.TabIndex = 21;
             this.txtBoxItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtBoxItemName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(FormValidator.Validator.TextBox_KeyPress);
             // 
             // panel7
             // 
@@ -460,10 +459,10 @@
             // 
             this.dataGridMenu.AllowUserToResizeColumns = false;
             this.dataGridMenu.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(59)))), ((int)(((byte)(75)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
-            this.dataGridMenu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(59)))), ((int)(((byte)(75)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            this.dataGridMenu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -472,15 +471,15 @@
             this.dataGridMenu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridMenu.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridMenu.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridMenu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridMenu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridMenu.ColumnHeadersHeight = 30;
             this.dataGridMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -489,14 +488,14 @@
             this.colItemName,
             this.colItemCategory,
             this.colItemPrice});
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridMenu.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridMenu.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridMenu.DoubleBuffered = true;
             this.dataGridMenu.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridMenu.EnableHeadersVisualStyles = false;
@@ -505,14 +504,14 @@
             this.dataGridMenu.Location = new System.Drawing.Point(46, 86);
             this.dataGridMenu.Name = "dataGridMenu";
             this.dataGridMenu.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridMenu.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridMenu.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridMenu.RowHeadersWidth = 30;
             this.dataGridMenu.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridMenu.RowTemplate.Height = 25;
@@ -524,8 +523,8 @@
             // colSn
             // 
             this.colSn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colSn.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colSn.DefaultCellStyle = dataGridViewCellStyle3;
             this.colSn.FillWeight = 15F;
             this.colSn.HeaderText = "SN";
             this.colSn.Name = "colSn";
@@ -534,8 +533,8 @@
             // colItemCode
             // 
             this.colItemCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colItemCode.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colItemCode.DefaultCellStyle = dataGridViewCellStyle4;
             this.colItemCode.FillWeight = 25F;
             this.colItemCode.HeaderText = "Code";
             this.colItemCode.Name = "colItemCode";
@@ -545,9 +544,9 @@
             // colItemName
             // 
             this.colItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.colItemName.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.colItemName.DefaultCellStyle = dataGridViewCellStyle5;
             this.colItemName.FillWeight = 110F;
             this.colItemName.HeaderText = "Particulars";
             this.colItemName.Name = "colItemName";
@@ -557,9 +556,9 @@
             // colItemCategory
             // 
             this.colItemCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.colItemCategory.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.colItemCategory.DefaultCellStyle = dataGridViewCellStyle6;
             this.colItemCategory.FillWeight = 50F;
             this.colItemCategory.HeaderText = "Category";
             this.colItemCategory.Name = "colItemCategory";
@@ -569,9 +568,9 @@
             // colItemPrice
             // 
             this.colItemPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.colItemPrice.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.colItemPrice.DefaultCellStyle = dataGridViewCellStyle7;
             this.colItemPrice.FillWeight = 30F;
             this.colItemPrice.HeaderText = "Price";
             this.colItemPrice.Name = "colItemPrice";
@@ -700,6 +699,42 @@
             this.labelMenuGeneratorHeading.Text = "M  E  N  U     I  T  E  M     E  N  T  R  Y ";
             this.labelMenuGeneratorHeading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnCancelItem
+            // 
+            this.btnCancelItem.Activecolor = System.Drawing.Color.CornflowerBlue;
+            this.btnCancelItem.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnCancelItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancelItem.BorderRadius = 7;
+            this.btnCancelItem.ButtonText = "C A N C E L";
+            this.btnCancelItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelItem.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCancelItem.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnCancelItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCancelItem.Iconimage")));
+            this.btnCancelItem.Iconimage_right = null;
+            this.btnCancelItem.Iconimage_right_Selected = null;
+            this.btnCancelItem.Iconimage_Selected = null;
+            this.btnCancelItem.IconMarginLeft = 15;
+            this.btnCancelItem.IconMarginRight = 0;
+            this.btnCancelItem.IconRightVisible = true;
+            this.btnCancelItem.IconRightZoom = 0D;
+            this.btnCancelItem.IconVisible = true;
+            this.btnCancelItem.IconZoom = 45D;
+            this.btnCancelItem.IsTab = false;
+            this.btnCancelItem.Location = new System.Drawing.Point(198, 175);
+            this.btnCancelItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelItem.Name = "btnCancelItem";
+            this.btnCancelItem.Normalcolor = System.Drawing.Color.RoyalBlue;
+            this.btnCancelItem.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnCancelItem.OnHoverTextColor = System.Drawing.Color.Silver;
+            this.btnCancelItem.selected = false;
+            this.btnCancelItem.Size = new System.Drawing.Size(179, 48);
+            this.btnCancelItem.TabIndex = 28;
+            this.btnCancelItem.Text = "C A N C E L";
+            this.btnCancelItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCancelItem.Textcolor = System.Drawing.Color.White;
+            this.btnCancelItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelItem.Click += new System.EventHandler(this.BtnCancelItem_Click);
+            // 
             // MenuItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -752,5 +787,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemPrice;
         private Bunifu.Framework.UI.BunifuFlatButton btnDeleteMenuItem;
         private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;
+        private Bunifu.Framework.UI.BunifuFlatButton btnCancelItem;
     }
 }
