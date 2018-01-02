@@ -47,11 +47,11 @@ namespace CourseWorkAD
             this.PbOrgIcon = new System.Windows.Forms.PictureBox();
             this.LblOrgName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.BunifuDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.LogoAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.billGenerator = new CourseWorkAD.CustomUserControl.BillGenerator();
             this.chartGenerator = new CourseWorkAD.CustomUserControl.ChartGenerator();
             this.menuItem = new CourseWorkAD.CustomUserControl.MenuItem();
             this.homePage = new CourseWorkAD.CustomUserControl.HomePage();
-            this.LogoAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.PanelAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.PnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnHamburger)).BeginInit();
@@ -293,7 +293,7 @@ namespace CourseWorkAD
             this.BtnSystemClose.Image = ((System.Drawing.Image)(resources.GetObject("BtnSystemClose.Image")));
             this.BtnSystemClose.ImageActive = null;
             this.BtnSystemClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnSystemClose.Location = new System.Drawing.Point(1354, 14);
+            this.BtnSystemClose.Location = new System.Drawing.Point(1752, 17);
             this.BtnSystemClose.Margin = new System.Windows.Forms.Padding(5);
             this.BtnSystemClose.Name = "BtnSystemClose";
             this.BtnSystemClose.Size = new System.Drawing.Size(20, 20);
@@ -337,6 +337,28 @@ namespace CourseWorkAD
             this.BunifuDragControl.TargetControl = this.PnlHeader;
             this.BunifuDragControl.Vertical = true;
             // 
+            // LogoAnimator
+            // 
+            this.LogoAnimator.AnimationType = BunifuAnimatorNS.AnimationType.Mosaic;
+            this.LogoAnimator.Cursor = null;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 20;
+            animation1.Padding = new System.Windows.Forms.Padding(30);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.LogoAnimator.DefaultAnimation = animation1;
+            this.LogoAnimator.Interval = 5;
+            // 
             // billGenerator
             // 
             this.LogoAnimator.SetDecoration(this.billGenerator, BunifuAnimatorNS.DecorationType.None);
@@ -377,28 +399,6 @@ namespace CourseWorkAD
             this.homePage.Name = "homePage";
             this.homePage.Size = new System.Drawing.Size(1420, 1049);
             this.homePage.TabIndex = 2;
-            // 
-            // LogoAnimator
-            // 
-            this.LogoAnimator.AnimationType = BunifuAnimatorNS.AnimationType.Mosaic;
-            this.LogoAnimator.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 20;
-            animation1.Padding = new System.Windows.Forms.Padding(30);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.LogoAnimator.DefaultAnimation = animation1;
-            this.LogoAnimator.Interval = 5;
             // 
             // PanelAnimator
             // 

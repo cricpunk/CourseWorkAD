@@ -24,6 +24,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuItem));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -33,11 +34,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuItem));
             this.PnlMenuItemContainer = new System.Windows.Forms.Panel();
             this.pnlHomeTextField = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnCancelItem = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAddCategoryItem = new Bunifu.Framework.UI.BunifuFlatButton();
             this.dropDownItemCategory = new Bunifu.Framework.UI.BunifuDropdown();
             this.btnAddItem = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -63,10 +64,11 @@
             this.btnUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnDeleteMenuItem = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbSortItems = new System.Windows.Forms.CheckBox();
+            this.cbSortPrice = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelMenuGeneratorHeading = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btnCancelItem = new Bunifu.Framework.UI.BunifuFlatButton();
             this.PnlMenuItemContainer.SuspendLayout();
             this.pnlHomeTextField.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -74,6 +76,7 @@
             this.pnlHomeDataTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMenu)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlMenuItemContainer
@@ -126,6 +129,42 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(577, 252);
             this.panel8.TabIndex = 25;
+            // 
+            // btnCancelItem
+            // 
+            this.btnCancelItem.Activecolor = System.Drawing.Color.CornflowerBlue;
+            this.btnCancelItem.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnCancelItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancelItem.BorderRadius = 7;
+            this.btnCancelItem.ButtonText = "C A N C E L";
+            this.btnCancelItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelItem.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCancelItem.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnCancelItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCancelItem.Iconimage")));
+            this.btnCancelItem.Iconimage_right = null;
+            this.btnCancelItem.Iconimage_right_Selected = null;
+            this.btnCancelItem.Iconimage_Selected = null;
+            this.btnCancelItem.IconMarginLeft = 15;
+            this.btnCancelItem.IconMarginRight = 0;
+            this.btnCancelItem.IconRightVisible = true;
+            this.btnCancelItem.IconRightZoom = 0D;
+            this.btnCancelItem.IconVisible = true;
+            this.btnCancelItem.IconZoom = 45D;
+            this.btnCancelItem.IsTab = false;
+            this.btnCancelItem.Location = new System.Drawing.Point(198, 175);
+            this.btnCancelItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelItem.Name = "btnCancelItem";
+            this.btnCancelItem.Normalcolor = System.Drawing.Color.RoyalBlue;
+            this.btnCancelItem.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnCancelItem.OnHoverTextColor = System.Drawing.Color.Silver;
+            this.btnCancelItem.selected = false;
+            this.btnCancelItem.Size = new System.Drawing.Size(179, 48);
+            this.btnCancelItem.TabIndex = 28;
+            this.btnCancelItem.Text = "C A N C E L";
+            this.btnCancelItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCancelItem.Textcolor = System.Drawing.Color.White;
+            this.btnCancelItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelItem.Click += new System.EventHandler(this.BtnCancelItem_Click);
             // 
             // btnAddCategoryItem
             // 
@@ -187,7 +226,7 @@
             this.btnAddItem.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnAddItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAddItem.BorderRadius = 7;
-            this.btnAddItem.ButtonText = "A D D   I T E M";
+            this.btnAddItem.ButtonText = "A D D ";
             this.btnAddItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddItem.DisabledColor = System.Drawing.Color.Gray;
             this.btnAddItem.Iconcolor = System.Drawing.Color.Transparent;
@@ -211,7 +250,7 @@
             this.btnAddItem.selected = false;
             this.btnAddItem.Size = new System.Drawing.Size(181, 48);
             this.btnAddItem.TabIndex = 26;
-            this.btnAddItem.Text = "A D D   I T E M";
+            this.btnAddItem.Text = "A D D ";
             this.btnAddItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAddItem.Textcolor = System.Drawing.Color.White;
             this.btnAddItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -529,6 +568,7 @@
             this.colSn.HeaderText = "SN";
             this.colSn.Name = "colSn";
             this.colSn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colSn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // colItemCode
             // 
@@ -664,11 +704,47 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.cbSortItems);
+            this.panel3.Controls.Add(this.cbSortPrice);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(40, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(727, 80);
             this.panel3.TabIndex = 3;
+            // 
+            // cbSortItems
+            // 
+            this.cbSortItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSortItems.AutoSize = true;
+            this.cbSortItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.cbSortItems.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbSortItems.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSortItems.ForeColor = System.Drawing.Color.Silver;
+            this.cbSortItems.Location = new System.Drawing.Point(477, 52);
+            this.cbSortItems.Name = "cbSortItems";
+            this.cbSortItems.Size = new System.Drawing.Size(106, 25);
+            this.cbSortItems.TabIndex = 4;
+            this.cbSortItems.Text = "Sort Iems";
+            this.cbSortItems.UseVisualStyleBackColor = false;
+            this.cbSortItems.CheckedChanged += new System.EventHandler(this.CbSortItems_CheckedChanged);
+            // 
+            // cbSortPrice
+            // 
+            this.cbSortPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSortPrice.AutoSize = true;
+            this.cbSortPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.cbSortPrice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbSortPrice.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSortPrice.ForeColor = System.Drawing.Color.Silver;
+            this.cbSortPrice.Location = new System.Drawing.Point(610, 52);
+            this.cbSortPrice.Name = "cbSortPrice";
+            this.cbSortPrice.Size = new System.Drawing.Size(108, 25);
+            this.cbSortPrice.TabIndex = 3;
+            this.cbSortPrice.Text = "Sort Price";
+            this.cbSortPrice.UseVisualStyleBackColor = false;
+            this.cbSortPrice.CheckedChanged += new System.EventHandler(this.CbSortPrice_CheckedChanged);
             // 
             // panel2
             // 
@@ -699,42 +775,6 @@
             this.labelMenuGeneratorHeading.Text = "M  E  N  U     I  T  E  M     E  N  T  R  Y ";
             this.labelMenuGeneratorHeading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnCancelItem
-            // 
-            this.btnCancelItem.Activecolor = System.Drawing.Color.CornflowerBlue;
-            this.btnCancelItem.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnCancelItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCancelItem.BorderRadius = 7;
-            this.btnCancelItem.ButtonText = "C A N C E L";
-            this.btnCancelItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelItem.DisabledColor = System.Drawing.Color.Gray;
-            this.btnCancelItem.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnCancelItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCancelItem.Iconimage")));
-            this.btnCancelItem.Iconimage_right = null;
-            this.btnCancelItem.Iconimage_right_Selected = null;
-            this.btnCancelItem.Iconimage_Selected = null;
-            this.btnCancelItem.IconMarginLeft = 15;
-            this.btnCancelItem.IconMarginRight = 0;
-            this.btnCancelItem.IconRightVisible = true;
-            this.btnCancelItem.IconRightZoom = 0D;
-            this.btnCancelItem.IconVisible = true;
-            this.btnCancelItem.IconZoom = 45D;
-            this.btnCancelItem.IsTab = false;
-            this.btnCancelItem.Location = new System.Drawing.Point(198, 175);
-            this.btnCancelItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnCancelItem.Name = "btnCancelItem";
-            this.btnCancelItem.Normalcolor = System.Drawing.Color.RoyalBlue;
-            this.btnCancelItem.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnCancelItem.OnHoverTextColor = System.Drawing.Color.Silver;
-            this.btnCancelItem.selected = false;
-            this.btnCancelItem.Size = new System.Drawing.Size(179, 48);
-            this.btnCancelItem.TabIndex = 28;
-            this.btnCancelItem.Text = "C A N C E L";
-            this.btnCancelItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancelItem.Textcolor = System.Drawing.Color.White;
-            this.btnCancelItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelItem.Click += new System.EventHandler(this.BtnCancelItem_Click);
-            // 
             // MenuItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -749,6 +789,8 @@
             this.pnlHomeDataTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMenu)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -780,13 +822,15 @@
         private Bunifu.Framework.UI.BunifuDropdown dropDownItemCategory;
         private Bunifu.Framework.UI.BunifuFlatButton btnAddCategoryItem;
         private Bunifu.Framework.UI.BunifuFlatButton BtnCancelImport;
+        private Bunifu.Framework.UI.BunifuFlatButton btnDeleteMenuItem;
+        private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;
+        private Bunifu.Framework.UI.BunifuFlatButton btnCancelItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemPrice;
-        private Bunifu.Framework.UI.BunifuFlatButton btnDeleteMenuItem;
-        private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;
-        private Bunifu.Framework.UI.BunifuFlatButton btnCancelItem;
+        private System.Windows.Forms.CheckBox cbSortItems;
+        private System.Windows.Forms.CheckBox cbSortPrice;
     }
 }

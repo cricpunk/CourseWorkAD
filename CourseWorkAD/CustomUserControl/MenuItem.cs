@@ -297,6 +297,101 @@ namespace CourseWorkAD.CustomUserControl {
                 dataGridMenu.ClearSelection();
             }
         }
+
+        private void CbSortItems_CheckedChanged(object sender, EventArgs e) {
+
+            if(cbSortItems.Checked) {
+                UpdateDataTable(SortedItemsByItem());
+                cbSortPrice.Enabled = false;
+            } else {
+                UpdateDataTable(itemList);
+                cbSortPrice.Enabled = true;
+            }
+
+        }
+
+        private void CbSortPrice_CheckedChanged(object sender, EventArgs e) {
+
+            if (cbSortPrice.Checked) {
+                UpdateDataTable(SortedItemsByPrice());
+                cbSortItems.Enabled = false;
+            } else {
+                UpdateDataTable(itemList);
+                cbSortItems.Enabled = true;
+            }
+
+        }
+
+        private void UpdateDataTable(List<Item> itemList) {
+
+            dataGridMenu.Rows.Clear();
+            for (int i = 0; i < itemList.Count; i++) {
+                InsertDataIntoTable(itemList[i]);
+                dataGridMenu.Rows[i].Cells[0].Value = i + 1;
+            }
+
+        }
+
+        private static List<Item> SortedItemsByPrice() {
+
+            int[] array = new int[itemList.Count]; 
+
+            for (int i = 0; i < itemList.Count; i++) {
+                array[i] = Convert.ToInt32(itemList[i].ItemRate);
+            }
+
+            int[] sortedArray = Sources.PerformQuickSort.NumericQuickSort(array, 0, array.Length - 1);
+
+            List<Item> sortedItems = new List<Item>();
+            List<Item> tempItemList = new List<Item>(ItemList);
+
+            for (int i = 0; i < sortedArray.Length; i++) {
+
+                for (int j = 0; j < tempItemList.Count; j++) {
+
+                    if (sortedArray[i] == Convert.ToInt32(tempItemList[j].ItemRate)) {
+                        sortedItems.Add(tempItemList[j]);
+                        tempItemList.RemoveAt(j);
+                        break;
+                    }
+
+                }
+
+            }
+
+            return sortedItems;
+        }
+
+        private static List<Item> SortedItemsByItem() {
+
+            string[] unsortedArray = new string[itemList.Count];
+
+            for (int i = 0; i < itemList.Count; i++) {
+                unsortedArray[i] = itemList[i].ItemName;
+            }
+
+            IComparable[] sortedArray = Sources.PerformQuickSort.PerformQuickSearch(unsortedArray, 0, unsortedArray.Length - 1);
+
+            List<Item> sortedItems = new List<Item>();
+            List<Item> tempItemList = new List<Item>(ItemList);
+
+            for (int i = 0; i < sortedArray.Length; i++) {
+
+                for (int j = 0; j < tempItemList.Count; j++) {
+
+                    if (sortedArray[i].Equals(tempItemList[j].ItemName)) {
+                        sortedItems.Add(tempItemList[j]);
+                        tempItemList.RemoveAt(j);
+                        break;
+                    }
+
+                }
+
+            }
+
+            return sortedItems;
+        }
+
     }
 
 }
