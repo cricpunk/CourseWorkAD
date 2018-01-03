@@ -1,12 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.FileIO;
 using CourseWorkAD.Model;
 using CourseWorkAD.Serialization;
+using CourseWorkAD.FormValidator;
+
+/* METHODS AND IT'S CONTENTS
+ * ****************************************************************************************************************
+ * METHOD 1 : Deserialize total revenue details of items.
+ * METHOD 2 : Enter(i.e. When focus) events of BillGenerator (i.e. This user control).
+ * METHOD 3 : Setting items name into item dropdown control.
+ * METHOD 4 : Dictionary which return items code and name as key value pair.
+ * METHOD 5 : Dictionary which return items code and rate as key value pair.
+ * METHOD 6 : Item dropdown OnItemSelect listener.
+ * METHOD 7 : Button add item click listener.
+ * METHOD 8 : Record total sales into a dictionary.
+ * METHOD 9 : Total amount received textbox value changed listener.
+ * METHOD 10 : Button print bill click listener.
+ * METHOD 11 : Button clear bill click listener.
+ * METHOD 12 : Start timer.
+ * METHOD 13 : Timer tick event handler. 
+ * METHOD 14 : Total amount received textbox value changed listener.
+ * METHOD 15 : Button print bill click listener.
+ * METHOD 16 : Button clear bill click listener.
+ * METHOD 17 : Start timer.
+ * METHOD 18 : Timer tick event handler. 
+ */
 
 namespace CourseWorkAD.CustomUserControl {
 
@@ -15,25 +37,71 @@ namespace CourseWorkAD.CustomUserControl {
         private ComponentResourceManager resources;
         private Boolean update = false;
         private int updateIndex;
-        private static List<Item> itemList;
+        private static List<Item> itemList = new List<Item>();
         internal static List<Item> ItemList { get => itemList; set => itemList = value; }
         public static string dataLocation = Application.StartupPath + @"\ItemsData.dat";
 
+        // System build constructor
         public MenuItem() {
-            InitializeComponent();
-            FormValidator.Validator.neumericOnlyTextBoxRate = txtBoxItemPrice;
-            resources = new ComponentResourceManager(typeof(MenuItem));
-            dropDownItemCategory.Items = ItemCategory();
-            dropDownItemCategory.selectedIndex = 0;
-            itemList = new List<Item>();
-            InsertSerializeDataIntoTable();
+
+            InitializeComponent();           // System build method to load all components belongs to this class
+            resources = new ComponentResourceManager(typeof(MenuItem));     // For using images
+            dropDownItemCategory.Items = ItemCategory();                    // Set itemCategory values
+            dropDownItemCategory.selectedIndex = 0;                         // Select first index from dropdown items
+            InsertSerializeDataIntoTable();                                 // Call method to insert data into table
+
         }
 
-        internal List<Item> ITEMDATA {
-            get { return itemList; }
-            set { itemList = value; }
+        /* METHOD : (1)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
+        private string[] ItemCategory() {
+
+            string[] items = {
+                "--- Item Category ---",
+                "Drinks",
+                "Food",
+                "Beverage",
+                "Breakfast",
+                "Nepali",
+                "Chinees",
+                "Indian",
+                "Coffee & Soup"};
+
+            return items;
         }
 
+        /* METHOD : (2)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
+        private void InsertSerializeDataIntoTable() {
+
+            if (File.Exists(dataLocation)) {
+
+                //ItemsToSerialize itemsToSerialize = new ItemsToSerialize();
+
+                SerializeItem serializeItem = new SerializeItem();
+                serializeItem = new Serializer().DeserializeItems("ItemsData.dat");
+
+                itemList = serializeItem.Items;
+
+                for (int i = 0; i < itemList.Count; i++) {
+                    InsertDataIntoTable(ItemList[i]);
+                }
+
+            }
+
+        }
+
+        /* METHOD : (3)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private void BtnImport_Click(object sender, EventArgs e) {
 
             OpenFileDialog fileDialog = new OpenFileDialog {
@@ -62,8 +130,13 @@ namespace CourseWorkAD.CustomUserControl {
 
             }
 
-        }  
+        }
 
+        /* METHOD : (4)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private void BtnAddImportData_Click(object sender, EventArgs e) {
 
             if (txtBoxFileLocation.Text == "") {
@@ -78,6 +151,20 @@ namespace CourseWorkAD.CustomUserControl {
             
         }
 
+        /* METHOD : (5)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
+        private void BtnCancelImport_Click(object sender, EventArgs e) {
+            txtBoxFileLocation.ResetText();
+        }
+
+        /* METHOD : (6)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private Boolean ProcessCSVFileData(string filePath) {
 
             try {
@@ -129,55 +216,16 @@ namespace CourseWorkAD.CustomUserControl {
             }
         }
 
-        private void InsertDataIntoTable(Item item) {
-
-            int targetRow = dataGridMenu.Rows.Count - 1;
-            dataGridMenu.Rows.Add();
-            dataGridMenu.Rows[targetRow].Cells[0].Value = itemList.IndexOf(item) + 1;
-            dataGridMenu.Rows[targetRow].Cells[1].Value = item.ItemCode;
-            dataGridMenu.Rows[targetRow].Cells[2].Value = item.ItemName;
-            dataGridMenu.Rows[targetRow].Cells[3].Value = item.ItemCategory;
-            dataGridMenu.Rows[targetRow].Cells[4].Value = item.ItemRate;
-
-        }
-
-        private void InsertSerializeDataIntoTable() {
-
-            if (File.Exists(dataLocation)) {
-
-                //ItemsToSerialize itemsToSerialize = new ItemsToSerialize();
-
-                SerializeItem serializeItem = new SerializeItem();
-                serializeItem = new Serializer().DeserializeItems("ItemsData.dat");
-
-                itemList = serializeItem.Items;
-
-                for (int i = 0; i < itemList.Count; i++) {
-                    InsertDataIntoTable(ItemList[i]);
-                }
-
-            }
-
-        }
-
-        private void DataGridMenu_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e) {
-
-            this.updateIndex = e.RowIndex;
-            txtBoxItemCode.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[1].Value);
-            txtBoxItemName.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[2].Value);
-            txtBoxItemPrice.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[4].Value);
-            //txtBoxItemCode.Text = Convert.ToString(dataGridMenu.Rows[selectedIndex].Cells[3].Value);
-            btnAddItem.Text = "U P D A T E";
-            btnAddItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Iconimage")));
-            this.update = true;
-
-        }
-
+        /* METHOD : (7)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private void BtnAddItem_Click(object sender, EventArgs e) {
 
-            FormValidator.Validator.neumericOnlyTextBoxRate = txtBoxItemPrice;
+            Validator.neumericOnlyTextBoxRate = txtBoxItemPrice;
 
-            if (FormValidator.Validator.ValidateText(txtBoxItemCode) && FormValidator.Validator.ValidateText(txtBoxItemName) && FormValidator.Validator.ValidateText(txtBoxItemPrice)) {
+            if (Validator.ValidateText(txtBoxItemCode) && Validator.ValidateText(txtBoxItemName) && Validator.ValidateText(txtBoxItemPrice)) {
 
                 if (!update) {
 
@@ -212,6 +260,11 @@ namespace CourseWorkAD.CustomUserControl {
 
         }
 
+        /* METHOD : (8)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private void ClearFields() {
 
             txtBoxItemCode.ResetText();
@@ -221,6 +274,62 @@ namespace CourseWorkAD.CustomUserControl {
 
         }
 
+        /* METHOD : (9)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
+        private void BtnCancelItem_Click(object sender, EventArgs e) {
+            txtBoxItemCode.ResetText();
+            txtBoxItemName.ResetText();
+            txtBoxItemPrice.ResetText();
+            dropDownItemCategory.selectedIndex = 0;
+
+            if (update) {
+                dataGridMenu.ClearSelection();
+            }
+        }
+
+        /* METHOD : (10)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
+        private void InsertDataIntoTable(Item item) {
+
+            int targetRow = dataGridMenu.Rows.Count - 1;
+            dataGridMenu.Rows.Add();
+            dataGridMenu.Rows[targetRow].Cells[0].Value = itemList.IndexOf(item) + 1;
+            dataGridMenu.Rows[targetRow].Cells[1].Value = item.ItemCode;
+            dataGridMenu.Rows[targetRow].Cells[2].Value = item.ItemName;
+            dataGridMenu.Rows[targetRow].Cells[3].Value = item.ItemCategory;
+            dataGridMenu.Rows[targetRow].Cells[4].Value = item.ItemRate;
+
+        }
+
+        /* METHOD : (11)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
+        private void DataGridMenu_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e) {
+
+            this.updateIndex = e.RowIndex;
+            txtBoxItemCode.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[1].Value);
+            txtBoxItemName.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[2].Value);
+            txtBoxItemPrice.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[4].Value);
+            //txtBoxItemCode.Text = Convert.ToString(dataGridMenu.Rows[selectedIndex].Cells[3].Value);
+            btnAddItem.Text = "U P D A T E";
+            btnAddItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Iconimage")));
+            this.update = true;
+
+        }
+
+        /* METHOD : (12)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private void BtnDeleteMenuItem_Click(object sender, EventArgs e) {
 
             // Check if any row is selected or not
@@ -263,41 +372,11 @@ namespace CourseWorkAD.CustomUserControl {
 
         }
 
-        private string[] ItemCategory() {
-
-            string[] items = {
-                "--- Item Category ---",
-                "Drinks",
-                "Food",
-                "Beverage",
-                "Breakfast",
-                "Nepali",
-                "Chinees",
-                "Indian",
-                "Coffee & Soup"};
-
-            return items;
-        }
-
-        private void BtnCancelImport_Click(object sender, EventArgs e) {
-            txtBoxFileLocation.ResetText();
-        }
-
-        private void BtnAddCategoryItem_Click_1(object sender, EventArgs e) { 
-            MessageBox.Show("Add Category", " Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void BtnCancelItem_Click(object sender, EventArgs e) {
-            txtBoxItemCode.ResetText();
-            txtBoxItemName.ResetText();
-            txtBoxItemPrice.ResetText();
-            dropDownItemCategory.selectedIndex = 0;
-            
-            if(update) {
-                dataGridMenu.ClearSelection();
-            }
-        }
-
+        /* METHOD : (13)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private void CbSortItems_CheckedChanged(object sender, EventArgs e) {
 
             if(cbSortItems.Checked) {
@@ -310,6 +389,11 @@ namespace CourseWorkAD.CustomUserControl {
 
         }
 
+        /* METHOD : (14)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private void CbSortPrice_CheckedChanged(object sender, EventArgs e) {
 
             if (cbSortPrice.Checked) {
@@ -322,6 +406,11 @@ namespace CourseWorkAD.CustomUserControl {
 
         }
 
+        /* METHOD : (15)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private void UpdateDataTable(List<Item> itemList) {
 
             dataGridMenu.Rows.Clear();
@@ -332,6 +421,11 @@ namespace CourseWorkAD.CustomUserControl {
 
         }
 
+        /* METHOD : (16)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private static List<Item> SortedItemsByPrice() {
 
             int[] array = new int[itemList.Count]; 
@@ -362,6 +456,11 @@ namespace CourseWorkAD.CustomUserControl {
             return sortedItems;
         }
 
+        /* METHOD : (17)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private static List<Item> SortedItemsByItem() {
 
             string[] unsortedArray = new string[itemList.Count];
@@ -370,7 +469,7 @@ namespace CourseWorkAD.CustomUserControl {
                 unsortedArray[i] = itemList[i].ItemName;
             }
 
-            IComparable[] sortedArray = Sources.PerformQuickSort.PerformQuickSearch(unsortedArray, 0, unsortedArray.Length - 1);
+            IComparable[] sortedArray = Sources.PerformQuickSort.CharacterQuickSort(unsortedArray, 0, unsortedArray.Length - 1);
 
             List<Item> sortedItems = new List<Item>();
             List<Item> tempItemList = new List<Item>(ItemList);
@@ -392,6 +491,14 @@ namespace CourseWorkAD.CustomUserControl {
             return sortedItems;
         }
 
+        /* METHOD : (18)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
+        private void TxtBoxItemPrice_KeyPress(object sender, KeyPressEventArgs e) {
+            Validator.TextBox_KeyPress(sender, e);
+        }
     }
 
 }

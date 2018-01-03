@@ -11,6 +11,11 @@ namespace CourseWorkAD.Serialization {
 
         public Serializer() { }
 
+        /* METHOD : (1)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         public void SearilizeItems(string fileName, SerializeItem items) {
 
             stream = File.Open(fileName, FileMode.Create);
@@ -25,6 +30,11 @@ namespace CourseWorkAD.Serialization {
 
         }
 
+        /* METHOD : (2)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         public SerializeItem DeserializeItems(string fileName) {
 
             SerializeItem serializeItem;

@@ -9,6 +9,11 @@ namespace CourseWorkAD.Sources {
 
     class PerformQuickSort {
 
+        /* METHOD : (1)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         public static int[] NumericQuickSort(int[] array, int left, int right) {
 
             if (left > right || left < 0 || right < 0) return null;
@@ -23,6 +28,11 @@ namespace CourseWorkAD.Sources {
             return array;
         }
 
+        /* METHOD : (2)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private static int NumericPartition(int[] array, int left, int right) {
 
             if (left > right) return -1;
@@ -43,13 +53,23 @@ namespace CourseWorkAD.Sources {
 
         }
 
+        /* METHOD : (3)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         private static void NumericSwap(int[] array, int left, int right) {
             int tmp = array[left];
             array[left] = array[right];
             array[right] = tmp;
         }
 
-        public static IComparable[] PerformQuickSearch(IComparable[] array, int left, int right) {
+        /* METHOD : (4)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
+        public static IComparable[] CharacterQuickSort(IComparable[] array, int left, int right) {
 
             int i = left, j = right;
             IComparable pivot = array[left + (right - left) / 2];
@@ -76,11 +96,11 @@ namespace CourseWorkAD.Sources {
 
             // Recursive calls
             if (left < j) {
-                PerformQuickSearch(array, left, j);
+                CharacterQuickSort(array, left, j);
             }
 
             if (i < right) {
-                PerformQuickSearch(array, i, right);
+                CharacterQuickSort(array, i, right);
             }
 
             return array;

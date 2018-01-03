@@ -13,11 +13,21 @@ namespace CourseWorkAD.Model {
 
         public SerializeItem() { }
 
+        /* METHOD : (1)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         public void GetObjectData(SerializationInfo info, StreamingContext context) {
             info.AddValue("Items", Items);
             info.AddValue("TotalSalesCollection", TotalSalesCollection);
         }
 
+        /* METHOD : (2)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         public SerializeItem(SerializationInfo info, StreamingContext context) {
             this.Items = (List<Item>)info.GetValue("Items", typeof(List<Item>));
             this.TotalSalesCollection = (Dictionary<string, int>)info.GetValue("TotalSalesCollection", typeof(Dictionary<string, int>));

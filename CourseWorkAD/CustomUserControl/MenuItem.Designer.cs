@@ -39,7 +39,6 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnCancelItem = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnAddCategoryItem = new Bunifu.Framework.UI.BunifuFlatButton();
             this.dropDownItemCategory = new Bunifu.Framework.UI.BunifuDropdown();
             this.btnAddItem = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtBoxItemPrice = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -119,7 +118,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.panel8.Controls.Add(this.btnCancelItem);
-            this.panel8.Controls.Add(this.btnAddCategoryItem);
             this.panel8.Controls.Add(this.dropDownItemCategory);
             this.panel8.Controls.Add(this.btnAddItem);
             this.panel8.Controls.Add(this.txtBoxItemPrice);
@@ -166,41 +164,6 @@
             this.btnCancelItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelItem.Click += new System.EventHandler(this.BtnCancelItem_Click);
             // 
-            // btnAddCategoryItem
-            // 
-            this.btnAddCategoryItem.Activecolor = System.Drawing.Color.CornflowerBlue;
-            this.btnAddCategoryItem.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnAddCategoryItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddCategoryItem.BorderRadius = 7;
-            this.btnAddCategoryItem.ButtonText = "";
-            this.btnAddCategoryItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddCategoryItem.DisabledColor = System.Drawing.Color.Gray;
-            this.btnAddCategoryItem.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAddCategoryItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAddCategoryItem.Iconimage")));
-            this.btnAddCategoryItem.Iconimage_right = null;
-            this.btnAddCategoryItem.Iconimage_right_Selected = null;
-            this.btnAddCategoryItem.Iconimage_Selected = null;
-            this.btnAddCategoryItem.IconMarginLeft = 0;
-            this.btnAddCategoryItem.IconMarginRight = 0;
-            this.btnAddCategoryItem.IconRightVisible = true;
-            this.btnAddCategoryItem.IconRightZoom = 0D;
-            this.btnAddCategoryItem.IconVisible = true;
-            this.btnAddCategoryItem.IconZoom = 45D;
-            this.btnAddCategoryItem.IsTab = false;
-            this.btnAddCategoryItem.Location = new System.Drawing.Point(526, 90);
-            this.btnAddCategoryItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAddCategoryItem.Name = "btnAddCategoryItem";
-            this.btnAddCategoryItem.Normalcolor = System.Drawing.Color.RoyalBlue;
-            this.btnAddCategoryItem.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnAddCategoryItem.OnHoverTextColor = System.Drawing.Color.Silver;
-            this.btnAddCategoryItem.selected = false;
-            this.btnAddCategoryItem.Size = new System.Drawing.Size(40, 40);
-            this.btnAddCategoryItem.TabIndex = 25;
-            this.btnAddCategoryItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAddCategoryItem.Textcolor = System.Drawing.Color.White;
-            this.btnAddCategoryItem.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCategoryItem.Click += new System.EventHandler(this.BtnAddCategoryItem_Click_1);
-            // 
             // dropDownItemCategory
             // 
             this.dropDownItemCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
@@ -216,7 +179,7 @@
             this.dropDownItemCategory.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.dropDownItemCategory.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.dropDownItemCategory.selectedIndex = -1;
-            this.dropDownItemCategory.Size = new System.Drawing.Size(279, 43);
+            this.dropDownItemCategory.Size = new System.Drawing.Size(329, 43);
             this.dropDownItemCategory.TabIndex = 27;
             this.dropDownItemCategory.Tag = "";
             // 
@@ -274,6 +237,7 @@
             this.txtBoxItemPrice.Size = new System.Drawing.Size(213, 43);
             this.txtBoxItemPrice.TabIndex = 23;
             this.txtBoxItemPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtBoxItemPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBoxItemPrice_KeyPress);
             // 
             // txtBoxItemCode
             // 
@@ -820,7 +784,6 @@
         private System.Windows.Forms.Panel panel11;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dataGridMenu;
         private Bunifu.Framework.UI.BunifuDropdown dropDownItemCategory;
-        private Bunifu.Framework.UI.BunifuFlatButton btnAddCategoryItem;
         private Bunifu.Framework.UI.BunifuFlatButton BtnCancelImport;
         private Bunifu.Framework.UI.BunifuFlatButton btnDeleteMenuItem;
         private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;

@@ -8,8 +8,12 @@ namespace CourseWorkAD.FormValidator {
     class Validator {
 
         public static object neumericOnlyTextBoxRate;
-        public static object neumericOnlyTextBoxQty;
 
+        /* METHOD : (1)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         public static Boolean ValidateText(BunifuMaterialTextbox textBox) {
 
             if (textBox.Text.Trim() == "") {
@@ -17,12 +21,28 @@ namespace CourseWorkAD.FormValidator {
                 textBox.HintText = "Empty field !";
                 textBox.HintForeColor = Color.IndianRed;
                 return false;
+            } else if(textBox.Equals(neumericOnlyTextBoxRate)) {
+
+                if(Convert.ToInt32(textBox.Text) < 1) {
+                    textBox.ResetText();
+                    textBox.HintText = "Invalid Number !";
+                    textBox.HintForeColor = Color.IndianRed;
+                    return false;
+                } else {
+                    return true;
+                }
+                
             } else {
                 return true;
             }
 
         }
 
+        /* METHOD : (2)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         public static String ValidateDropDown(BunifuDropdown dropdown) {
             if (dropdown.selectedIndex == 0) {
                 return "N.A";
@@ -31,6 +51,11 @@ namespace CourseWorkAD.FormValidator {
             }
         }
 
+        /* METHOD : (3)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         public static void TextBox_KeyPress(object sender, KeyPressEventArgs e) {
 
             BunifuMaterialTextbox textBox = (BunifuMaterialTextbox)sender;
@@ -39,17 +64,18 @@ namespace CourseWorkAD.FormValidator {
             textBox.HintForeColor = Color.Silver;
             textBox.ForeColor = Color.Silver;
 
-            if (sender.Equals(neumericOnlyTextBoxRate) || sender.Equals(neumericOnlyTextBoxQty)) {
+            //if (sender.Equals(neumericOnlyTextBoxRate) || sender.Equals(neumericOnlyTextBoxQty)) {
 
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) {
 
-                    textBox.HintText = "Numeric only !";
-                    textBox.HintForeColor = Color.IndianRed;
-                    e.Handled = true;
-                }
-
+                textBox.HintText = "Numeric only !";
+                textBox.HintForeColor = Color.IndianRed;
+                e.Handled = true;
             }
 
+            //}
+
         }
+
     }
 }

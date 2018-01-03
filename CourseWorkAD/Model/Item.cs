@@ -14,6 +14,11 @@ namespace CourseWorkAD.Model {
         public Item() { }
 
         // Serializing
+        /* METHOD : (1)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         public void GetObjectData(SerializationInfo info, StreamingContext context) {
             info.AddValue("ItemCode", ItemCode);
             info.AddValue("ItemName", ItemName);
@@ -22,6 +27,11 @@ namespace CourseWorkAD.Model {
         }
 
         // Dserializing or remove
+        /* METHOD : (2)
+        * ********************************************************************************************************
+        * 
+        * ********************************************************************************************************
+        */
         public Item(SerializationInfo info, StreamingContext contex) {
             ItemCode = (string)info.GetValue("ItemCode", typeof(string));
             ItemName = (string)info.GetValue("ItemName", typeof(string));

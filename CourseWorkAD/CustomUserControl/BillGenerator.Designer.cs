@@ -74,7 +74,7 @@
             this.txtReceivedAmount = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtCustomerName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.btnPrintBill = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnCancelBill = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnClearBill = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -166,7 +166,6 @@
             this.lblBillCreateTime.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.lblBillCreateTime.Size = new System.Drawing.Size(401, 23);
             this.lblBillCreateTime.TabIndex = 21;
-            this.lblBillCreateTime.Text = "Create Time :  01 - 25 PM , Sunday";
             this.lblBillCreateTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCustomerName
@@ -181,7 +180,6 @@
             this.lblCustomerName.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
             this.lblCustomerName.Size = new System.Drawing.Size(401, 23);
             this.lblCustomerName.TabIndex = 20;
-            this.lblCustomerName.Text = "Name : Pankaj Koirala";
             this.lblCustomerName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblBillDate
@@ -620,7 +618,7 @@
             this.Pnl.Controls.Add(this.txtReceivedAmount);
             this.Pnl.Controls.Add(this.txtCustomerName);
             this.Pnl.Controls.Add(this.btnPrintBill);
-            this.Pnl.Controls.Add(this.btnCancelBill);
+            this.Pnl.Controls.Add(this.btnClearBill);
             this.Pnl.Location = new System.Drawing.Point(20, 683);
             this.Pnl.Name = "Pnl";
             this.Pnl.Size = new System.Drawing.Size(577, 269);
@@ -665,6 +663,7 @@
             this.txtReceivedAmount.TabIndex = 28;
             this.txtReceivedAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtReceivedAmount.OnValueChanged += new System.EventHandler(this.TxtReceivedAmount_OnValueChanged);
+            this.txtReceivedAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtReceivedAmount_KeyPress);
             // 
             // txtCustomerName
             // 
@@ -721,41 +720,41 @@
             this.btnPrintBill.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintBill.Click += new System.EventHandler(this.BtnPrintBill_Click);
             // 
-            // btnCancelBill
+            // btnClearBill
             // 
-            this.btnCancelBill.Activecolor = System.Drawing.Color.CornflowerBlue;
-            this.btnCancelBill.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnCancelBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCancelBill.BorderRadius = 7;
-            this.btnCancelBill.ButtonText = "C A N C E L";
-            this.btnCancelBill.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelBill.DisabledColor = System.Drawing.Color.Gray;
-            this.btnCancelBill.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnCancelBill.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCancelBill.Iconimage")));
-            this.btnCancelBill.Iconimage_right = null;
-            this.btnCancelBill.Iconimage_right_Selected = null;
-            this.btnCancelBill.Iconimage_Selected = null;
-            this.btnCancelBill.IconMarginLeft = 15;
-            this.btnCancelBill.IconMarginRight = 0;
-            this.btnCancelBill.IconRightVisible = true;
-            this.btnCancelBill.IconRightZoom = 0D;
-            this.btnCancelBill.IconVisible = true;
-            this.btnCancelBill.IconZoom = 45D;
-            this.btnCancelBill.IsTab = false;
-            this.btnCancelBill.Location = new System.Drawing.Point(171, 193);
-            this.btnCancelBill.Margin = new System.Windows.Forms.Padding(0);
-            this.btnCancelBill.Name = "btnCancelBill";
-            this.btnCancelBill.Normalcolor = System.Drawing.Color.RoyalBlue;
-            this.btnCancelBill.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnCancelBill.OnHoverTextColor = System.Drawing.Color.Silver;
-            this.btnCancelBill.selected = false;
-            this.btnCancelBill.Size = new System.Drawing.Size(187, 51);
-            this.btnCancelBill.TabIndex = 25;
-            this.btnCancelBill.Text = "C A N C E L";
-            this.btnCancelBill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancelBill.Textcolor = System.Drawing.Color.White;
-            this.btnCancelBill.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelBill.Click += new System.EventHandler(this.BtnCancelBill_Click);
+            this.btnClearBill.Activecolor = System.Drawing.Color.CornflowerBlue;
+            this.btnClearBill.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnClearBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnClearBill.BorderRadius = 7;
+            this.btnClearBill.ButtonText = "C  L  E  A  R";
+            this.btnClearBill.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClearBill.DisabledColor = System.Drawing.Color.Gray;
+            this.btnClearBill.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnClearBill.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnClearBill.Iconimage")));
+            this.btnClearBill.Iconimage_right = null;
+            this.btnClearBill.Iconimage_right_Selected = null;
+            this.btnClearBill.Iconimage_Selected = null;
+            this.btnClearBill.IconMarginLeft = 15;
+            this.btnClearBill.IconMarginRight = 0;
+            this.btnClearBill.IconRightVisible = true;
+            this.btnClearBill.IconRightZoom = 0D;
+            this.btnClearBill.IconVisible = true;
+            this.btnClearBill.IconZoom = 45D;
+            this.btnClearBill.IsTab = false;
+            this.btnClearBill.Location = new System.Drawing.Point(171, 193);
+            this.btnClearBill.Margin = new System.Windows.Forms.Padding(0);
+            this.btnClearBill.Name = "btnClearBill";
+            this.btnClearBill.Normalcolor = System.Drawing.Color.RoyalBlue;
+            this.btnClearBill.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnClearBill.OnHoverTextColor = System.Drawing.Color.Silver;
+            this.btnClearBill.selected = false;
+            this.btnClearBill.Size = new System.Drawing.Size(187, 51);
+            this.btnClearBill.TabIndex = 25;
+            this.btnClearBill.Text = "C  L  E  A  R";
+            this.btnClearBill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClearBill.Textcolor = System.Drawing.Color.White;
+            this.btnClearBill.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearBill.Click += new System.EventHandler(this.BtnClearBill_Click);
             // 
             // panel7
             // 
@@ -851,6 +850,7 @@
             this.txtItemQtyBill.Size = new System.Drawing.Size(256, 50);
             this.txtItemQtyBill.TabIndex = 23;
             this.txtItemQtyBill.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtItemQtyBill.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtItemQtyBill_KeyPress);
             // 
             // txtItemRateBill
             // 
@@ -870,6 +870,7 @@
             this.txtItemRateBill.Size = new System.Drawing.Size(250, 50);
             this.txtItemRateBill.TabIndex = 22;
             this.txtItemRateBill.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtItemRateBill.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtItemRateBill_KeyPress);
             // 
             // dropDownItemcategoryBill
             // 
@@ -879,16 +880,13 @@
             this.dropDownItemcategoryBill.DisabledColor = System.Drawing.Color.Gray;
             this.dropDownItemcategoryBill.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dropDownItemcategoryBill.ForeColor = System.Drawing.Color.Silver;
-            this.dropDownItemcategoryBill.Items = new string[] {
-        "one",
-        "two",
-        "three"};
+            this.dropDownItemcategoryBill.Items = new string[0];
             this.dropDownItemcategoryBill.Location = new System.Drawing.Point(297, 24);
             this.dropDownItemcategoryBill.Margin = new System.Windows.Forms.Padding(0);
             this.dropDownItemcategoryBill.Name = "dropDownItemcategoryBill";
             this.dropDownItemcategoryBill.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
             this.dropDownItemcategoryBill.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.dropDownItemcategoryBill.selectedIndex = 0;
+            this.dropDownItemcategoryBill.selectedIndex = -1;
             this.dropDownItemcategoryBill.Size = new System.Drawing.Size(256, 50);
             this.dropDownItemcategoryBill.TabIndex = 21;
             this.dropDownItemcategoryBill.onItemSelected += new System.EventHandler(this.DropDownItemcategoryBill_onItemSelected);
@@ -911,8 +909,6 @@
             this.txtItemCodeBill.Size = new System.Drawing.Size(250, 50);
             this.txtItemCodeBill.TabIndex = 20;
             this.txtItemCodeBill.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtItemCodeBill.OnValueChanged += new System.EventHandler(this.TxtItemCodeBill_OnValueChanged);
-            this.txtItemCodeBill.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtItemCodeBill_KeyPress);
             // 
             // LblBillGeneratorHeading
             // 
@@ -934,6 +930,7 @@
             this.Controls.Add(this.PnlHomePageContainer);
             this.Name = "BillGenerator";
             this.Size = new System.Drawing.Size(1420, 1053);
+            this.Enter += new System.EventHandler(this.BillGenerator_Enter);
             this.PnlHomePageContainer.ResumeLayout(false);
             this.PnlBillingDetails.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -986,12 +983,11 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnAddItemInttoBill;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtItemQtyBill;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtItemRateBill;
-        private Bunifu.Framework.UI.BunifuDropdown dropDownItemcategoryBill;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtItemCodeBill;
         private System.Windows.Forms.Panel Pnl;
         private System.Windows.Forms.Panel panel7;
         private Bunifu.Framework.UI.BunifuFlatButton btnPrintBill;
-        private Bunifu.Framework.UI.BunifuFlatButton btnCancelBill;
+        private Bunifu.Framework.UI.BunifuFlatButton btnClearBill;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtRefundAmount;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtReceivedAmount;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtCustomerName;
@@ -1001,5 +997,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRateBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColQtyBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn COlAmountBill;
+        private Bunifu.Framework.UI.BunifuDropdown dropDownItemcategoryBill;
     }
 }

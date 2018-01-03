@@ -24,15 +24,15 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PnlHomePageContainer = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblOrgName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pcRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbSelectAll = new System.Windows.Forms.CheckBox();
+            this.btnRefresh = new Bunifu.Framework.UI.BunifuFlatButton();
             this.clbSoldItems = new System.Windows.Forms.CheckedListBox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.PnlHomePageContainer.SuspendLayout();
@@ -85,17 +85,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pcRevenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.pcRevenue.BorderlineColor = System.Drawing.Color.Black;
-            chartArea3.Name = "ChartArea1";
-            this.pcRevenue.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.pcRevenue.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.pcRevenue.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.pcRevenue.Legends.Add(legend2);
             this.pcRevenue.Location = new System.Drawing.Point(22, 100);
             this.pcRevenue.Name = "pcRevenue";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Legend = "Legend1";
-            series3.Name = "revenue";
-            this.pcRevenue.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "revenue";
+            this.pcRevenue.Series.Add(series2);
             this.pcRevenue.Size = new System.Drawing.Size(975, 811);
             this.pcRevenue.TabIndex = 3;
             this.pcRevenue.Text = "chart1";
@@ -103,7 +103,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.panel1.Controls.Add(this.cbSelectAll);
+            this.panel1.Controls.Add(this.btnRefresh);
             this.panel1.Controls.Add(this.clbSoldItems);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(1020, 65);
@@ -111,23 +111,43 @@
             this.panel1.Size = new System.Drawing.Size(400, 988);
             this.panel1.TabIndex = 3;
             // 
-            // cbSelectAll
+            // btnRefresh
             // 
-            this.cbSelectAll.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnRefresh.Activecolor = System.Drawing.Color.CornflowerBlue;
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbSelectAll.AutoSize = true;
-            this.cbSelectAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.cbSelectAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbSelectAll.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSelectAll.ForeColor = System.Drawing.Color.Silver;
-            this.cbSelectAll.Location = new System.Drawing.Point(16, 73);
-            this.cbSelectAll.Name = "cbSelectAll";
-            this.cbSelectAll.Size = new System.Drawing.Size(107, 25);
-            this.cbSelectAll.TabIndex = 2;
-            this.cbSelectAll.Text = "Select All";
-            this.cbSelectAll.UseVisualStyleBackColor = false;
-            this.cbSelectAll.CheckedChanged += new System.EventHandler(this.CbSelectAll_CheckedChanged);
+            this.btnRefresh.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnRefresh.BorderRadius = 7;
+            this.btnRefresh.ButtonText = "R  E  F  R  E  S  H";
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.DisabledColor = System.Drawing.Color.Gray;
+            this.btnRefresh.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnRefresh.Iconimage = null;
+            this.btnRefresh.Iconimage_right = null;
+            this.btnRefresh.Iconimage_right_Selected = null;
+            this.btnRefresh.Iconimage_Selected = null;
+            this.btnRefresh.IconMarginLeft = 15;
+            this.btnRefresh.IconMarginRight = 0;
+            this.btnRefresh.IconRightVisible = true;
+            this.btnRefresh.IconRightZoom = 0D;
+            this.btnRefresh.IconVisible = true;
+            this.btnRefresh.IconZoom = 45D;
+            this.btnRefresh.IsTab = false;
+            this.btnRefresh.Location = new System.Drawing.Point(88, 37);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Normalcolor = System.Drawing.Color.RoyalBlue;
+            this.btnRefresh.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnRefresh.OnHoverTextColor = System.Drawing.Color.Silver;
+            this.btnRefresh.selected = false;
+            this.btnRefresh.Size = new System.Drawing.Size(207, 51);
+            this.btnRefresh.TabIndex = 25;
+            this.btnRefresh.Text = "R  E  F  R  E  S  H";
+            this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRefresh.Textcolor = System.Drawing.Color.White;
+            this.btnRefresh.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // clbSoldItems
             // 
@@ -143,7 +163,7 @@
             this.clbSoldItems.Location = new System.Drawing.Point(16, 101);
             this.clbSoldItems.Margin = new System.Windows.Forms.Padding(0);
             this.clbSoldItems.Name = "clbSoldItems";
-            this.clbSoldItems.Size = new System.Drawing.Size(369, 810);
+            this.clbSoldItems.Size = new System.Drawing.Size(366, 810);
             this.clbSoldItems.TabIndex = 1;
             this.clbSoldItems.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ClbSoldItems_ItemCheck);
             // 
@@ -171,7 +191,6 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcRevenue)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -184,7 +203,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart pcRevenue;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckedListBox clbSoldItems;
-        private System.Windows.Forms.CheckBox cbSelectAll;
         private Bunifu.Framework.UI.BunifuCustomLabel lblOrgName;
+        private Bunifu.Framework.UI.BunifuFlatButton btnRefresh;
     }
 }

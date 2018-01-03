@@ -48,11 +48,12 @@ namespace CourseWorkAD
             this.LblOrgName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.BunifuDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.LogoAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.PanelAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.lblClock = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.homePage = new CourseWorkAD.CustomUserControl.HomePage();
+            this.menuItem = new CourseWorkAD.CustomUserControl.MenuItem();
             this.billGenerator = new CourseWorkAD.CustomUserControl.BillGenerator();
             this.chartGenerator = new CourseWorkAD.CustomUserControl.ChartGenerator();
-            this.menuItem = new CourseWorkAD.CustomUserControl.MenuItem();
-            this.homePage = new CourseWorkAD.CustomUserControl.HomePage();
-            this.PanelAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.PnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnHamburger)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbOrgLogoLarge)).BeginInit();
@@ -80,7 +81,7 @@ namespace CourseWorkAD
             this.PnlSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.PnlSideBar.Location = new System.Drawing.Point(0, 51);
             this.PnlSideBar.Name = "PnlSideBar";
-            this.PnlSideBar.Size = new System.Drawing.Size(380, 1049);
+            this.PnlSideBar.Size = new System.Drawing.Size(380, 1004);
             this.PnlSideBar.TabIndex = 0;
             // 
             // BtnGenerateBillSideBar
@@ -272,6 +273,7 @@ namespace CourseWorkAD
             // PnlHeader
             // 
             this.PnlHeader.BackColor = System.Drawing.Color.RoyalBlue;
+            this.PnlHeader.Controls.Add(this.lblClock);
             this.PnlHeader.Controls.Add(this.BtnSystemClose);
             this.PnlHeader.Controls.Add(this.PbOrgIcon);
             this.PnlHeader.Controls.Add(this.LblOrgName);
@@ -359,47 +361,6 @@ namespace CourseWorkAD
             this.LogoAnimator.DefaultAnimation = animation1;
             this.LogoAnimator.Interval = 5;
             // 
-            // billGenerator
-            // 
-            this.LogoAnimator.SetDecoration(this.billGenerator, BunifuAnimatorNS.DecorationType.None);
-            this.PanelAnimator.SetDecoration(this.billGenerator, BunifuAnimatorNS.DecorationType.None);
-            this.billGenerator.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.billGenerator.Location = new System.Drawing.Point(380, 51);
-            this.billGenerator.Name = "billGenerator";
-            this.billGenerator.Size = new System.Drawing.Size(1420, 1049);
-            this.billGenerator.TabIndex = 5;
-            // 
-            // chartGenerator
-            // 
-            this.LogoAnimator.SetDecoration(this.chartGenerator, BunifuAnimatorNS.DecorationType.None);
-            this.PanelAnimator.SetDecoration(this.chartGenerator, BunifuAnimatorNS.DecorationType.None);
-            this.chartGenerator.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartGenerator.Location = new System.Drawing.Point(380, 51);
-            this.chartGenerator.Name = "chartGenerator";
-            this.chartGenerator.Size = new System.Drawing.Size(1420, 1049);
-            this.chartGenerator.TabIndex = 4;
-            // 
-            // menuItem
-            // 
-            this.LogoAnimator.SetDecoration(this.menuItem, BunifuAnimatorNS.DecorationType.None);
-            this.PanelAnimator.SetDecoration(this.menuItem, BunifuAnimatorNS.DecorationType.None);
-            this.menuItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuItem.Location = new System.Drawing.Point(380, 51);
-            this.menuItem.Name = "menuItem";
-            this.menuItem.Size = new System.Drawing.Size(1420, 1049);
-            this.menuItem.TabIndex = 3;
-            // 
-            // homePage
-            // 
-            this.homePage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.LogoAnimator.SetDecoration(this.homePage, BunifuAnimatorNS.DecorationType.None);
-            this.PanelAnimator.SetDecoration(this.homePage, BunifuAnimatorNS.DecorationType.None);
-            this.homePage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homePage.Location = new System.Drawing.Point(380, 51);
-            this.homePage.Name = "homePage";
-            this.homePage.Size = new System.Drawing.Size(1420, 1049);
-            this.homePage.TabIndex = 2;
-            // 
             // PanelAnimator
             // 
             this.PanelAnimator.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
@@ -422,17 +383,75 @@ namespace CourseWorkAD
             this.PanelAnimator.DefaultAnimation = animation2;
             this.PanelAnimator.MaxAnimationTime = 1000;
             // 
+            // lblClock
+            // 
+            this.lblClock.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblClock.AutoSize = true;
+            this.LogoAnimator.SetDecoration(this.lblClock, BunifuAnimatorNS.DecorationType.None);
+            this.PanelAnimator.SetDecoration(this.lblClock, BunifuAnimatorNS.DecorationType.None);
+            this.lblClock.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lblClock.ForeColor = System.Drawing.Color.Silver;
+            this.lblClock.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblClock.Location = new System.Drawing.Point(797, 14);
+            this.lblClock.Name = "lblClock";
+            this.lblClock.Size = new System.Drawing.Size(0, 23);
+            this.lblClock.TabIndex = 4;
+            this.lblClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // homePage
+            // 
+            this.homePage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.LogoAnimator.SetDecoration(this.homePage, BunifuAnimatorNS.DecorationType.None);
+            this.PanelAnimator.SetDecoration(this.homePage, BunifuAnimatorNS.DecorationType.None);
+            this.homePage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homePage.Location = new System.Drawing.Point(380, 51);
+            this.homePage.Name = "homePage";
+            this.homePage.Size = new System.Drawing.Size(1420, 1004);
+            this.homePage.TabIndex = 5;
+            // 
+            // menuItem
+            // 
+            this.LogoAnimator.SetDecoration(this.menuItem, BunifuAnimatorNS.DecorationType.None);
+            this.PanelAnimator.SetDecoration(this.menuItem, BunifuAnimatorNS.DecorationType.None);
+            this.menuItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuItem.Location = new System.Drawing.Point(380, 51);
+            this.menuItem.Name = "menuItem";
+            this.menuItem.Size = new System.Drawing.Size(1420, 1004);
+            this.menuItem.TabIndex = 4;
+            // 
+            // billGenerator
+            // 
+            this.LogoAnimator.SetDecoration(this.billGenerator, BunifuAnimatorNS.DecorationType.None);
+            this.PanelAnimator.SetDecoration(this.billGenerator, BunifuAnimatorNS.DecorationType.None);
+            this.billGenerator.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.billGenerator.Location = new System.Drawing.Point(380, 51);
+            this.billGenerator.Name = "billGenerator";
+            this.billGenerator.Size = new System.Drawing.Size(1420, 1004);
+            this.billGenerator.TabIndex = 3;
+            // 
+            // chartGenerator
+            // 
+            this.LogoAnimator.SetDecoration(this.chartGenerator, BunifuAnimatorNS.DecorationType.None);
+            this.PanelAnimator.SetDecoration(this.chartGenerator, BunifuAnimatorNS.DecorationType.None);
+            this.chartGenerator.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartGenerator.Location = new System.Drawing.Point(380, 51);
+            this.chartGenerator.Name = "chartGenerator";
+            this.chartGenerator.Size = new System.Drawing.Size(1420, 1004);
+            this.chartGenerator.TabIndex = 2;
+            // 
             // CanteenPOSSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(1800, 1100);
+            this.ClientSize = new System.Drawing.Size(1800, 1055);
+            this.Controls.Add(this.homePage);
+            this.Controls.Add(this.menuItem);
             this.Controls.Add(this.billGenerator);
             this.Controls.Add(this.chartGenerator);
-            this.Controls.Add(this.menuItem);
-            this.Controls.Add(this.homePage);
             this.Controls.Add(this.PnlSideBar);
             this.Controls.Add(this.PnlHeader);
             this.LogoAnimator.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
@@ -466,12 +485,13 @@ namespace CourseWorkAD
         private Bunifu.Framework.UI.BunifuFlatButton BtnMenuSideBar;
         private Bunifu.Framework.UI.BunifuFlatButton BtnGenerateBillSideBar;
         private Bunifu.Framework.UI.BunifuFlatButton BtnChartSideBar;
-        private BillGenerator billGenerator;
-        private ChartGenerator chartGenerator;
-        private MenuItem menuItem;
-        private HomePage homePage;
         private BunifuAnimatorNS.BunifuTransition LogoAnimator;
         private BunifuAnimatorNS.BunifuTransition PanelAnimator;
+        private HomePage homePage;
+        private MenuItem menuItem;
+        private BillGenerator billGenerator;
+        private ChartGenerator chartGenerator;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblClock;
     }
 }
 
