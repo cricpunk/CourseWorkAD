@@ -4,17 +4,25 @@ using System.Runtime.Serialization;
 
 namespace CourseWorkAD.Model {
 
+    // Making this class Serializable by implementing ISerializable interface
     [Serializable()]
     class SerializeItem : ISerializable {
 
+        // Getter and setter for Generic List which store data type of Item class.
+        // This list will be serialized.
         public List<Item> Items { get; set; }
 
+        // Getter setter for dictionary which hold item name as key and total revenue as value
+        // This dictionary will be serialized.
         public Dictionary<string, int> TotalSalesCollection { get; set; }
 
+        // Public empty constructor should be provided.
         public SerializeItem() { }
 
         /* METHOD : (1)
         * ********************************************************************************************************
+        * Implementing ISerializable interface method.
+        * This method should be implemented comulsory.
         * 
         * ********************************************************************************************************
         */

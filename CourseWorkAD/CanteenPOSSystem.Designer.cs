@@ -39,25 +39,25 @@ namespace CourseWorkAD
             this.BtnGenerateBillSideBar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.BtnChartSideBar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.BtnMenuSideBar = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.BtnHomeSideBar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.BtnHamburger = new Bunifu.Framework.UI.BunifuImageButton();
             this.PbOrgLogoLarge = new System.Windows.Forms.PictureBox();
             this.PnlHeader = new System.Windows.Forms.Panel();
+            this.btnMinimize = new Bunifu.Framework.UI.BunifuImageButton();
+            this.lblClock = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.BtnSystemClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.PbOrgIcon = new System.Windows.Forms.PictureBox();
             this.LblOrgName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.BunifuDragControl = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.LogoAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.PanelAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.lblClock = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.homePage = new CourseWorkAD.CustomUserControl.HomePage();
             this.menuItem = new CourseWorkAD.CustomUserControl.MenuItem();
             this.billGenerator = new CourseWorkAD.CustomUserControl.BillGenerator();
             this.chartGenerator = new CourseWorkAD.CustomUserControl.ChartGenerator();
+            this.PanelAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.PnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnHamburger)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbOrgLogoLarge)).BeginInit();
             this.PnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnSystemClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbOrgIcon)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +73,6 @@ namespace CourseWorkAD
             this.PnlSideBar.Controls.Add(this.BtnGenerateBillSideBar);
             this.PnlSideBar.Controls.Add(this.BtnChartSideBar);
             this.PnlSideBar.Controls.Add(this.BtnMenuSideBar);
-            this.PnlSideBar.Controls.Add(this.BtnHomeSideBar);
             this.PnlSideBar.Controls.Add(this.BtnHamburger);
             this.PnlSideBar.Controls.Add(this.PbOrgLogoLarge);
             this.PanelAnimator.SetDecoration(this.PnlSideBar, BunifuAnimatorNS.DecorationType.None);
@@ -87,7 +86,7 @@ namespace CourseWorkAD
             // BtnGenerateBillSideBar
             // 
             this.BtnGenerateBillSideBar.Activecolor = System.Drawing.Color.RoyalBlue;
-            this.BtnGenerateBillSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
+            this.BtnGenerateBillSideBar.BackColor = System.Drawing.Color.RoyalBlue;
             this.BtnGenerateBillSideBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnGenerateBillSideBar.BorderRadius = 0;
             this.BtnGenerateBillSideBar.ButtonText = "Generate Bill";
@@ -107,13 +106,13 @@ namespace CourseWorkAD
             this.BtnGenerateBillSideBar.IconVisible = true;
             this.BtnGenerateBillSideBar.IconZoom = 50D;
             this.BtnGenerateBillSideBar.IsTab = true;
-            this.BtnGenerateBillSideBar.Location = new System.Drawing.Point(0, 170);
+            this.BtnGenerateBillSideBar.Location = new System.Drawing.Point(0, 108);
             this.BtnGenerateBillSideBar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnGenerateBillSideBar.Name = "BtnGenerateBillSideBar";
             this.BtnGenerateBillSideBar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
             this.BtnGenerateBillSideBar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.BtnGenerateBillSideBar.OnHoverTextColor = System.Drawing.Color.Black;
-            this.BtnGenerateBillSideBar.selected = false;
+            this.BtnGenerateBillSideBar.selected = true;
             this.BtnGenerateBillSideBar.Size = new System.Drawing.Size(380, 55);
             this.BtnGenerateBillSideBar.TabIndex = 5;
             this.BtnGenerateBillSideBar.Text = "Generate Bill";
@@ -145,7 +144,7 @@ namespace CourseWorkAD
             this.BtnChartSideBar.IconVisible = true;
             this.BtnChartSideBar.IconZoom = 45D;
             this.BtnChartSideBar.IsTab = true;
-            this.BtnChartSideBar.Location = new System.Drawing.Point(0, 280);
+            this.BtnChartSideBar.Location = new System.Drawing.Point(0, 218);
             this.BtnChartSideBar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnChartSideBar.Name = "BtnChartSideBar";
             this.BtnChartSideBar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
@@ -183,7 +182,7 @@ namespace CourseWorkAD
             this.BtnMenuSideBar.IconVisible = true;
             this.BtnMenuSideBar.IconZoom = 45D;
             this.BtnMenuSideBar.IsTab = true;
-            this.BtnMenuSideBar.Location = new System.Drawing.Point(0, 225);
+            this.BtnMenuSideBar.Location = new System.Drawing.Point(0, 163);
             this.BtnMenuSideBar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMenuSideBar.Name = "BtnMenuSideBar";
             this.BtnMenuSideBar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
@@ -197,44 +196,6 @@ namespace CourseWorkAD
             this.BtnMenuSideBar.Textcolor = System.Drawing.Color.Silver;
             this.BtnMenuSideBar.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnMenuSideBar.Click += new System.EventHandler(this.BtnMenuSideBar_Click);
-            // 
-            // BtnHomeSideBar
-            // 
-            this.BtnHomeSideBar.Activecolor = System.Drawing.Color.RoyalBlue;
-            this.BtnHomeSideBar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.BtnHomeSideBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnHomeSideBar.BorderRadius = 0;
-            this.BtnHomeSideBar.ButtonText = "Home";
-            this.BtnHomeSideBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PanelAnimator.SetDecoration(this.BtnHomeSideBar, BunifuAnimatorNS.DecorationType.None);
-            this.LogoAnimator.SetDecoration(this.BtnHomeSideBar, BunifuAnimatorNS.DecorationType.None);
-            this.BtnHomeSideBar.DisabledColor = System.Drawing.Color.Gray;
-            this.BtnHomeSideBar.Iconcolor = System.Drawing.Color.Transparent;
-            this.BtnHomeSideBar.Iconimage = ((System.Drawing.Image)(resources.GetObject("BtnHomeSideBar.Iconimage")));
-            this.BtnHomeSideBar.Iconimage_right = null;
-            this.BtnHomeSideBar.Iconimage_right_Selected = null;
-            this.BtnHomeSideBar.Iconimage_Selected = null;
-            this.BtnHomeSideBar.IconMarginLeft = 15;
-            this.BtnHomeSideBar.IconMarginRight = 0;
-            this.BtnHomeSideBar.IconRightVisible = true;
-            this.BtnHomeSideBar.IconRightZoom = 0D;
-            this.BtnHomeSideBar.IconVisible = true;
-            this.BtnHomeSideBar.IconZoom = 45D;
-            this.BtnHomeSideBar.IsTab = true;
-            this.BtnHomeSideBar.Location = new System.Drawing.Point(0, 115);
-            this.BtnHomeSideBar.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnHomeSideBar.Name = "BtnHomeSideBar";
-            this.BtnHomeSideBar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
-            this.BtnHomeSideBar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.BtnHomeSideBar.OnHoverTextColor = System.Drawing.Color.Black;
-            this.BtnHomeSideBar.selected = true;
-            this.BtnHomeSideBar.Size = new System.Drawing.Size(380, 55);
-            this.BtnHomeSideBar.TabIndex = 2;
-            this.BtnHomeSideBar.Text = "Home";
-            this.BtnHomeSideBar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.BtnHomeSideBar.Textcolor = System.Drawing.Color.Silver;
-            this.BtnHomeSideBar.TextFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnHomeSideBar.Click += new System.EventHandler(this.BtnHomeSideBar_Click);
             // 
             // BtnHamburger
             // 
@@ -273,6 +234,7 @@ namespace CourseWorkAD
             // PnlHeader
             // 
             this.PnlHeader.BackColor = System.Drawing.Color.RoyalBlue;
+            this.PnlHeader.Controls.Add(this.btnMinimize);
             this.PnlHeader.Controls.Add(this.lblClock);
             this.PnlHeader.Controls.Add(this.BtnSystemClose);
             this.PnlHeader.Controls.Add(this.PbOrgIcon);
@@ -286,6 +248,42 @@ namespace CourseWorkAD
             this.PnlHeader.Size = new System.Drawing.Size(1800, 51);
             this.PnlHeader.TabIndex = 1;
             // 
+            // btnMinimize
+            // 
+            this.btnMinimize.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PanelAnimator.SetDecoration(this.btnMinimize, BunifuAnimatorNS.DecorationType.None);
+            this.LogoAnimator.SetDecoration(this.btnMinimize, BunifuAnimatorNS.DecorationType.None);
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
+            this.btnMinimize.ImageActive = null;
+            this.btnMinimize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnMinimize.Location = new System.Drawing.Point(1704, 10);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(5);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimize.TabIndex = 5;
+            this.btnMinimize.TabStop = false;
+            this.btnMinimize.Zoom = 10;
+            this.btnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
+            // 
+            // lblClock
+            // 
+            this.lblClock.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblClock.AutoSize = true;
+            this.LogoAnimator.SetDecoration(this.lblClock, BunifuAnimatorNS.DecorationType.None);
+            this.PanelAnimator.SetDecoration(this.lblClock, BunifuAnimatorNS.DecorationType.None);
+            this.lblClock.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.lblClock.ForeColor = System.Drawing.Color.Silver;
+            this.lblClock.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblClock.Location = new System.Drawing.Point(797, 14);
+            this.lblClock.Name = "lblClock";
+            this.lblClock.Size = new System.Drawing.Size(0, 23);
+            this.lblClock.TabIndex = 4;
+            this.lblClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // BtnSystemClose
             // 
             this.BtnSystemClose.BackColor = System.Drawing.Color.RoyalBlue;
@@ -295,10 +293,10 @@ namespace CourseWorkAD
             this.BtnSystemClose.Image = ((System.Drawing.Image)(resources.GetObject("BtnSystemClose.Image")));
             this.BtnSystemClose.ImageActive = null;
             this.BtnSystemClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.BtnSystemClose.Location = new System.Drawing.Point(1752, 17);
+            this.BtnSystemClose.Location = new System.Drawing.Point(1747, 10);
             this.BtnSystemClose.Margin = new System.Windows.Forms.Padding(5);
             this.BtnSystemClose.Name = "BtnSystemClose";
-            this.BtnSystemClose.Size = new System.Drawing.Size(20, 20);
+            this.BtnSystemClose.Size = new System.Drawing.Size(30, 30);
             this.BtnSystemClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.BtnSystemClose.TabIndex = 3;
             this.BtnSystemClose.TabStop = false;
@@ -361,56 +359,6 @@ namespace CourseWorkAD
             this.LogoAnimator.DefaultAnimation = animation1;
             this.LogoAnimator.Interval = 5;
             // 
-            // PanelAnimator
-            // 
-            this.PanelAnimator.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
-            this.PanelAnimator.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 1;
-            animation2.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 2F;
-            animation2.TransparencyCoeff = 0F;
-            this.PanelAnimator.DefaultAnimation = animation2;
-            this.PanelAnimator.MaxAnimationTime = 1000;
-            // 
-            // lblClock
-            // 
-            this.lblClock.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblClock.AutoSize = true;
-            this.LogoAnimator.SetDecoration(this.lblClock, BunifuAnimatorNS.DecorationType.None);
-            this.PanelAnimator.SetDecoration(this.lblClock, BunifuAnimatorNS.DecorationType.None);
-            this.lblClock.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.lblClock.ForeColor = System.Drawing.Color.Silver;
-            this.lblClock.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblClock.Location = new System.Drawing.Point(797, 14);
-            this.lblClock.Name = "lblClock";
-            this.lblClock.Size = new System.Drawing.Size(0, 23);
-            this.lblClock.TabIndex = 4;
-            this.lblClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // homePage
-            // 
-            this.homePage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.LogoAnimator.SetDecoration(this.homePage, BunifuAnimatorNS.DecorationType.None);
-            this.PanelAnimator.SetDecoration(this.homePage, BunifuAnimatorNS.DecorationType.None);
-            this.homePage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homePage.Location = new System.Drawing.Point(380, 51);
-            this.homePage.Name = "homePage";
-            this.homePage.Size = new System.Drawing.Size(1420, 1004);
-            this.homePage.TabIndex = 5;
-            // 
             // menuItem
             // 
             this.LogoAnimator.SetDecoration(this.menuItem, BunifuAnimatorNS.DecorationType.None);
@@ -441,6 +389,28 @@ namespace CourseWorkAD
             this.chartGenerator.Size = new System.Drawing.Size(1420, 1004);
             this.chartGenerator.TabIndex = 2;
             // 
+            // PanelAnimator
+            // 
+            this.PanelAnimator.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
+            this.PanelAnimator.Cursor = null;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 1;
+            animation2.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 2F;
+            animation2.TransparencyCoeff = 0F;
+            this.PanelAnimator.DefaultAnimation = animation2;
+            this.PanelAnimator.MaxAnimationTime = 1000;
+            // 
             // CanteenPOSSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -448,7 +418,6 @@ namespace CourseWorkAD
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(1800, 1055);
-            this.Controls.Add(this.homePage);
             this.Controls.Add(this.menuItem);
             this.Controls.Add(this.billGenerator);
             this.Controls.Add(this.chartGenerator);
@@ -457,6 +426,7 @@ namespace CourseWorkAD
             this.LogoAnimator.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.PanelAnimator.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CanteenPOSSystem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.PnlSideBar.ResumeLayout(false);
@@ -464,6 +434,7 @@ namespace CourseWorkAD
             ((System.ComponentModel.ISupportInitialize)(this.PbOrgLogoLarge)).EndInit();
             this.PnlHeader.ResumeLayout(false);
             this.PnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnSystemClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbOrgIcon)).EndInit();
             this.ResumeLayout(false);
@@ -477,7 +448,6 @@ namespace CourseWorkAD
         private System.Windows.Forms.Panel PnlHeader;
         private Bunifu.Framework.UI.BunifuImageButton BtnHamburger;
         private System.Windows.Forms.PictureBox PbOrgLogoLarge;
-        private Bunifu.Framework.UI.BunifuFlatButton BtnHomeSideBar;
         private Bunifu.Framework.UI.BunifuCustomLabel LblOrgName;
         private System.Windows.Forms.PictureBox PbOrgIcon;
         private Bunifu.Framework.UI.BunifuImageButton BtnSystemClose;
@@ -487,11 +457,11 @@ namespace CourseWorkAD
         private Bunifu.Framework.UI.BunifuFlatButton BtnChartSideBar;
         private BunifuAnimatorNS.BunifuTransition LogoAnimator;
         private BunifuAnimatorNS.BunifuTransition PanelAnimator;
-        private HomePage homePage;
         private MenuItem menuItem;
         private BillGenerator billGenerator;
         private ChartGenerator chartGenerator;
         private Bunifu.Framework.UI.BunifuCustomLabel lblClock;
+        private Bunifu.Framework.UI.BunifuImageButton btnMinimize;
     }
 }
 

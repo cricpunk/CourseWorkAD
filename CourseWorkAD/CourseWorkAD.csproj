@@ -80,12 +80,6 @@
     <Compile Include="CustomUserControl\ChartGenerator.Designer.cs">
       <DependentUpon>ChartGenerator.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomUserControl\HomePage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CustomUserControl\HomePage.Designer.cs">
-      <DependentUpon>HomePage.cs</DependentUpon>
-    </Compile>
     <Compile Include="CanteenPOSSystem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,9 +103,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomUserControl\ChartGenerator.resx">
       <DependentUpon>ChartGenerator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomUserControl\HomePage.resx">
-      <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CanteenPOSSystem.resx">
       <DependentUpon>CanteenPOSSystem.cs</DependentUpon>
