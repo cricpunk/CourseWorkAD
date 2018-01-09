@@ -24,15 +24,14 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillGenerator));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PnlHomePageContainer = new System.Windows.Forms.Panel();
             this.PnlBillingDetails = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -47,6 +46,7 @@
             this.lblOrgAddress = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblOrgName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuCustomLabel19 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel18 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -68,7 +68,8 @@
             this.COlAmountBill = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.PnlBillItemSelector = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.Pnl = new System.Windows.Forms.Panel();
             this.txtRefundAmount = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.txtReceivedAmount = new Bunifu.Framework.UI.BunifuMaterialTextbox();
@@ -104,7 +105,7 @@
             this.PnlHomePageContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlHomePageContainer.Location = new System.Drawing.Point(0, 0);
             this.PnlHomePageContainer.Name = "PnlHomePageContainer";
-            this.PnlHomePageContainer.Size = new System.Drawing.Size(1420, 1053);
+            this.PnlHomePageContainer.Size = new System.Drawing.Size(1420, 1049);
             this.PnlHomePageContainer.TabIndex = 7;
             // 
             // PnlBillingDetails
@@ -119,7 +120,7 @@
             this.PnlBillingDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlBillingDetails.Location = new System.Drawing.Point(0, 65);
             this.PnlBillingDetails.Name = "PnlBillingDetails";
-            this.PnlBillingDetails.Size = new System.Drawing.Size(803, 988);
+            this.PnlBillingDetails.Size = new System.Drawing.Size(803, 984);
             this.PnlBillingDetails.TabIndex = 3;
             // 
             // panel5
@@ -127,7 +128,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.Location = new System.Drawing.Point(763, 229);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(40, 530);
+            this.panel5.Size = new System.Drawing.Size(40, 526);
             this.panel5.TabIndex = 18;
             // 
             // panel4
@@ -135,7 +136,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 229);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(40, 530);
+            this.panel4.Size = new System.Drawing.Size(40, 526);
             this.panel4.TabIndex = 17;
             // 
             // panel2
@@ -270,6 +271,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.bunifuSeparator2);
             this.panel1.Controls.Add(this.bunifuCustomLabel19);
             this.panel1.Controls.Add(this.bunifuCustomLabel18);
@@ -284,10 +286,19 @@
             this.panel1.Controls.Add(this.lblTotalAmt);
             this.panel1.Controls.Add(this.bunifuCustomLabel9);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 759);
+            this.panel1.Location = new System.Drawing.Point(0, 755);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(803, 229);
             this.panel1.TabIndex = 15;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.Location = new System.Drawing.Point(0, 199);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(803, 30);
+            this.panel9.TabIndex = 52;
             // 
             // bunifuSeparator2
             // 
@@ -466,10 +477,10 @@
             // 
             this.dataGridBill.AllowUserToResizeColumns = false;
             this.dataGridBill.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            this.dataGridBill.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            this.dataGridBill.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -478,15 +489,15 @@
             this.dataGridBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridBill.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridBill.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridBill.ColumnHeadersHeight = 30;
             this.dataGridBill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColSnBill,
@@ -494,14 +505,14 @@
             this.ColRateBill,
             this.ColQtyBill,
             this.COlAmountBill});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridBill.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridBill.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridBill.DoubleBuffered = true;
             this.dataGridBill.EnableHeadersVisualStyles = false;
             this.dataGridBill.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
@@ -514,15 +525,15 @@
             this.dataGridBill.RowHeadersWidth = 40;
             this.dataGridBill.RowTemplate.Height = 24;
             this.dataGridBill.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridBill.Size = new System.Drawing.Size(720, 518);
+            this.dataGridBill.Size = new System.Drawing.Size(720, 514);
             this.dataGridBill.TabIndex = 14;
             // 
             // ColSnBill
             // 
             this.ColSnBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.ColSnBill.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ColSnBill.DefaultCellStyle = dataGridViewCellStyle11;
             this.ColSnBill.FillWeight = 15F;
             this.ColSnBill.HeaderText = "SN";
             this.ColSnBill.Name = "ColSnBill";
@@ -531,9 +542,9 @@
             // ColItemBill
             // 
             this.ColItemBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.ColItemBill.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ColItemBill.DefaultCellStyle = dataGridViewCellStyle12;
             this.ColItemBill.FillWeight = 150F;
             this.ColItemBill.HeaderText = "Particulars";
             this.ColItemBill.Name = "ColItemBill";
@@ -542,11 +553,11 @@
             // ColRateBill
             // 
             this.ColRateBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.ColRateBill.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            dataGridViewCellStyle13.NullValue = null;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.ColRateBill.DefaultCellStyle = dataGridViewCellStyle13;
             this.ColRateBill.FillWeight = 25F;
             this.ColRateBill.HeaderText = "Rate";
             this.ColRateBill.Name = "ColRateBill";
@@ -555,11 +566,11 @@
             // ColQtyBill
             // 
             this.ColQtyBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.ColQtyBill.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            dataGridViewCellStyle14.NullValue = null;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.ColQtyBill.DefaultCellStyle = dataGridViewCellStyle14;
             this.ColQtyBill.FillWeight = 25F;
             this.ColQtyBill.HeaderText = "Qty";
             this.ColQtyBill.Name = "ColQtyBill";
@@ -568,11 +579,11 @@
             // COlAmountBill
             // 
             this.COlAmountBill.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = null;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.COlAmountBill.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = null;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.COlAmountBill.DefaultCellStyle = dataGridViewCellStyle15;
             this.COlAmountBill.FillWeight = 35F;
             this.COlAmountBill.HeaderText = "Amount";
             this.COlAmountBill.Name = "COlAmountBill";
@@ -580,6 +591,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -589,7 +601,8 @@
             // PnlBillItemSelector
             // 
             this.PnlBillItemSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.PnlBillItemSelector.Controls.Add(this.panel9);
+            this.PnlBillItemSelector.Controls.Add(this.bunifuCustomLabel1);
+            this.PnlBillItemSelector.Controls.Add(this.bunifuCustomLabel3);
             this.PnlBillItemSelector.Controls.Add(this.Pnl);
             this.PnlBillItemSelector.Controls.Add(this.panel7);
             this.PnlBillItemSelector.Controls.Add(this.flowLayoutPanel2);
@@ -598,16 +611,36 @@
             this.PnlBillItemSelector.Dock = System.Windows.Forms.DockStyle.Right;
             this.PnlBillItemSelector.Location = new System.Drawing.Point(803, 65);
             this.PnlBillItemSelector.Name = "PnlBillItemSelector";
-            this.PnlBillItemSelector.Size = new System.Drawing.Size(617, 988);
+            this.PnlBillItemSelector.Size = new System.Drawing.Size(617, 984);
             this.PnlBillItemSelector.TabIndex = 2;
             // 
-            // panel9
+            // bunifuCustomLabel1
             // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(20, 968);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(577, 20);
-            this.panel9.TabIndex = 27;
+            this.bunifuCustomLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.Silver;
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(20, 666);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(577, 43);
+            this.bunifuCustomLabel1.TabIndex = 33;
+            this.bunifuCustomLabel1.Text = "C H E C K O U T";
+            this.bunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.Silver;
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(20, 361);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(577, 43);
+            this.bunifuCustomLabel3.TabIndex = 32;
+            this.bunifuCustomLabel3.Text = "G E N E R A T E   B I L L S";
+            this.bunifuCustomLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Pnl
             // 
@@ -619,9 +652,9 @@
             this.Pnl.Controls.Add(this.txtCustomerName);
             this.Pnl.Controls.Add(this.btnPrintBill);
             this.Pnl.Controls.Add(this.btnClearBill);
-            this.Pnl.Location = new System.Drawing.Point(20, 683);
+            this.Pnl.Location = new System.Drawing.Point(20, 709);
             this.Pnl.Name = "Pnl";
-            this.Pnl.Size = new System.Drawing.Size(577, 269);
+            this.Pnl.Size = new System.Drawing.Size(577, 246);
             this.Pnl.TabIndex = 26;
             // 
             // txtRefundAmount
@@ -694,7 +727,7 @@
             this.btnPrintBill.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrintBill.DisabledColor = System.Drawing.Color.Gray;
             this.btnPrintBill.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnPrintBill.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnPrintBill.Iconimage")));
+            this.btnPrintBill.Iconimage = global::CourseWorkAD.Properties.Resources.print;
             this.btnPrintBill.Iconimage_right = null;
             this.btnPrintBill.Iconimage_right_Selected = null;
             this.btnPrintBill.Iconimage_Selected = null;
@@ -705,14 +738,14 @@
             this.btnPrintBill.IconVisible = true;
             this.btnPrintBill.IconZoom = 45D;
             this.btnPrintBill.IsTab = false;
-            this.btnPrintBill.Location = new System.Drawing.Point(371, 193);
+            this.btnPrintBill.Location = new System.Drawing.Point(377, 174);
             this.btnPrintBill.Margin = new System.Windows.Forms.Padding(0);
             this.btnPrintBill.Name = "btnPrintBill";
             this.btnPrintBill.Normalcolor = System.Drawing.Color.RoyalBlue;
             this.btnPrintBill.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.btnPrintBill.OnHoverTextColor = System.Drawing.Color.Silver;
             this.btnPrintBill.selected = false;
-            this.btnPrintBill.Size = new System.Drawing.Size(187, 51);
+            this.btnPrintBill.Size = new System.Drawing.Size(181, 48);
             this.btnPrintBill.TabIndex = 26;
             this.btnPrintBill.Text = "P R I N T";
             this.btnPrintBill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -730,7 +763,7 @@
             this.btnClearBill.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClearBill.DisabledColor = System.Drawing.Color.Gray;
             this.btnClearBill.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnClearBill.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnClearBill.Iconimage")));
+            this.btnClearBill.Iconimage = global::CourseWorkAD.Properties.Resources.cancel;
             this.btnClearBill.Iconimage_right = null;
             this.btnClearBill.Iconimage_right_Selected = null;
             this.btnClearBill.Iconimage_Selected = null;
@@ -741,14 +774,14 @@
             this.btnClearBill.IconVisible = true;
             this.btnClearBill.IconZoom = 45D;
             this.btnClearBill.IsTab = false;
-            this.btnClearBill.Location = new System.Drawing.Point(171, 193);
+            this.btnClearBill.Location = new System.Drawing.Point(184, 174);
             this.btnClearBill.Margin = new System.Windows.Forms.Padding(0);
             this.btnClearBill.Name = "btnClearBill";
             this.btnClearBill.Normalcolor = System.Drawing.Color.RoyalBlue;
             this.btnClearBill.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.btnClearBill.OnHoverTextColor = System.Drawing.Color.Silver;
             this.btnClearBill.selected = false;
-            this.btnClearBill.Size = new System.Drawing.Size(187, 51);
+            this.btnClearBill.Size = new System.Drawing.Size(181, 48);
             this.btnClearBill.TabIndex = 25;
             this.btnClearBill.Text = "C  L  E  A  R";
             this.btnClearBill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -758,10 +791,12 @@
             // 
             // panel7
             // 
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(20, 0);
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.panel7.Location = new System.Drawing.Point(20, 240);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(577, 80);
+            this.panel7.Size = new System.Drawing.Size(577, 105);
             this.panel7.TabIndex = 25;
             // 
             // flowLayoutPanel2
@@ -769,7 +804,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(597, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(20, 988);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(20, 984);
             this.flowLayoutPanel2.TabIndex = 24;
             // 
             // panel8
@@ -777,7 +812,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(20, 988);
+            this.panel8.Size = new System.Drawing.Size(20, 984);
             this.panel8.TabIndex = 23;
             // 
             // panel6
@@ -791,9 +826,9 @@
             this.panel6.Controls.Add(this.txtItemRateBill);
             this.panel6.Controls.Add(this.dropDownItemcategoryBill);
             this.panel6.Controls.Add(this.txtItemCodeBill);
-            this.panel6.Location = new System.Drawing.Point(20, 393);
+            this.panel6.Location = new System.Drawing.Point(20, 404);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(577, 272);
+            this.panel6.Size = new System.Drawing.Size(577, 248);
             this.panel6.TabIndex = 20;
             // 
             // btnAddItemInttoBill
@@ -806,7 +841,7 @@
             this.btnAddItemInttoBill.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddItemInttoBill.DisabledColor = System.Drawing.Color.Gray;
             this.btnAddItemInttoBill.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAddItemInttoBill.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAddItemInttoBill.Iconimage")));
+            this.btnAddItemInttoBill.Iconimage = global::CourseWorkAD.Properties.Resources.plus;
             this.btnAddItemInttoBill.Iconimage_right = null;
             this.btnAddItemInttoBill.Iconimage_right_Selected = null;
             this.btnAddItemInttoBill.Iconimage_Selected = null;
@@ -817,14 +852,14 @@
             this.btnAddItemInttoBill.IconVisible = true;
             this.btnAddItemInttoBill.IconZoom = 45D;
             this.btnAddItemInttoBill.IsTab = false;
-            this.btnAddItemInttoBill.Location = new System.Drawing.Point(368, 194);
+            this.btnAddItemInttoBill.Location = new System.Drawing.Point(372, 175);
             this.btnAddItemInttoBill.Margin = new System.Windows.Forms.Padding(0);
             this.btnAddItemInttoBill.Name = "btnAddItemInttoBill";
             this.btnAddItemInttoBill.Normalcolor = System.Drawing.Color.RoyalBlue;
             this.btnAddItemInttoBill.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.btnAddItemInttoBill.OnHoverTextColor = System.Drawing.Color.Silver;
             this.btnAddItemInttoBill.selected = false;
-            this.btnAddItemInttoBill.Size = new System.Drawing.Size(187, 51);
+            this.btnAddItemInttoBill.Size = new System.Drawing.Size(181, 48);
             this.btnAddItemInttoBill.TabIndex = 24;
             this.btnAddItemInttoBill.Text = "A D D";
             this.btnAddItemInttoBill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -855,6 +890,7 @@
             // txtItemRateBill
             // 
             this.txtItemRateBill.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtItemRateBill.Enabled = false;
             this.txtItemRateBill.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemRateBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.txtItemRateBill.HintForeColor = System.Drawing.Color.Silver;
@@ -894,6 +930,7 @@
             // txtItemCodeBill
             // 
             this.txtItemCodeBill.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtItemCodeBill.Enabled = false;
             this.txtItemCodeBill.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemCodeBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.txtItemCodeBill.HintForeColor = System.Drawing.Color.Silver;
@@ -929,7 +966,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.PnlHomePageContainer);
             this.Name = "BillGenerator";
-            this.Size = new System.Drawing.Size(1420, 1053);
+            this.Size = new System.Drawing.Size(1420, 1049);
             this.Enter += new System.EventHandler(this.BillGenerator_Enter);
             this.PnlHomePageContainer.ResumeLayout(false);
             this.PnlBillingDetails.ResumeLayout(false);
@@ -985,18 +1022,20 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtItemRateBill;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtItemCodeBill;
         private System.Windows.Forms.Panel Pnl;
-        private System.Windows.Forms.Panel panel7;
         private Bunifu.Framework.UI.BunifuFlatButton btnPrintBill;
         private Bunifu.Framework.UI.BunifuFlatButton btnClearBill;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtRefundAmount;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtReceivedAmount;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtCustomerName;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColSnBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColItemBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColRateBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColQtyBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn COlAmountBill;
         private Bunifu.Framework.UI.BunifuDropdown dropDownItemcategoryBill;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel9;
     }
 }

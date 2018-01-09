@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="CourseWorkAD.CanteenPOSSystem">
+    <Position X="0.5" Y="0.5" Width="2.75" />
+    <Members>
+      <Field Name="billGenerator" Hidden="true" />
+      <Field Name="BtnChartSideBar" Hidden="true" />
+      <Field Name="BtnGenerateBillSideBar" Hidden="true" />
+      <Field Name="BtnHamburger" Hidden="true" />
+      <Field Name="BtnMenuSideBar" Hidden="true" />
+      <Field Name="btnMinimize" Hidden="true" />
+      <Field Name="BtnSystemClose" Hidden="true" />
+      <Field Name="BunifuDragControl" Hidden="true" />
+      <Field Name="BunifuElipseMain" Hidden="true" />
+      <Field Name="chartGenerator" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="lblClock" Hidden="true" />
+      <Field Name="LblOrgName" Hidden="true" />
+      <Field Name="LogoAnimator" Hidden="true" />
+      <Field Name="menuItem" Hidden="true" />
+      <Field Name="PanelAnimator" Hidden="true" />
+      <Field Name="PbOrgIcon" Hidden="true" />
+      <Field Name="PbOrgLogoLarge" Hidden="true" />
+      <Field Name="PnlHeader" Hidden="true" />
+      <Field Name="PnlSideBar" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AARIAAAkASIBBAJAABCQEAEKIBAAAAEBAAIAASCABoA=</HashCode>
+      <FileName>CanteenPOSSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAD.Program">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAD.FormValidator.Validator">
+    <Position X="9" Y="7.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAACAAAAEAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FormValidator\Validator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAD.Model.Item" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAABAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Item.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CourseWorkAD.Model.SerializeItem" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="7.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAACAACAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SerializeItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CourseWorkAD.Serialization.Serializer">
+    <Position X="6.25" Y="7.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEAIAAEAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Serialization\Serializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAD.ColorGenerator.ColorGenerator" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="7.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAABAAAAAAAAAEAACAAAAAAAA=</HashCode>
+      <FileName>Sources\ColorGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CourseWorkAD.Sources.PerformQuickSort">
+    <Position X="11.75" Y="7.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAEAAAAAAAAAAAAABAAABAAAAAAAAAA=</HashCode>
+      <FileName>Sources\PerformQuickSort.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAD.CustomUserControl.MenuItem">
+    <Position X="7.5" Y="0.5" Width="3.75" />
+    <Members>
+      <Field Name="btnAddCategory" Hidden="true" />
+      <Field Name="btnAddImportData" Hidden="true" />
+      <Field Name="btnAddItem" Hidden="true" />
+      <Field Name="BtnCancelImport" Hidden="true" />
+      <Field Name="btnCancelItem" Hidden="true" />
+      <Field Name="btnDeleteMenuItem" Hidden="true" />
+      <Field Name="btnImport" Hidden="true" />
+      <Field Name="bunifuCustomLabel1" Hidden="true" />
+      <Field Name="bunifuCustomLabel2" Hidden="true" />
+      <Field Name="bunifuCustomLabel3" Hidden="true" />
+      <Field Name="cbSortItems" Hidden="true" />
+      <Field Name="cbSortPrice" Hidden="true" />
+      <Field Name="colItemCategory" Hidden="true" />
+      <Field Name="colItemCode" Hidden="true" />
+      <Field Name="colItemName" Hidden="true" />
+      <Field Name="colItemPrice" Hidden="true" />
+      <Field Name="colSn" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dataGridMenu" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="dropDownItemCategory" Hidden="true" />
+      <Field Name="flowLayoutPanel1" Hidden="true" />
+      <Field Name="flowLayoutPanel2" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="labelMenuGeneratorHeading" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel10" Hidden="true" />
+      <Field Name="panel11" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="panel8" Hidden="true" />
+      <Field Name="panel9" Hidden="true" />
+      <Field Name="pnlHomeDataTable" Hidden="true" />
+      <Field Name="pnlHomeTextField" Hidden="true" />
+      <Field Name="PnlMenuItemContainer" Hidden="true" />
+      <Field Name="txtBoxFileLocation" Hidden="true" />
+      <Field Name="txtBoxItemCode" Hidden="true" />
+      <Field Name="txtBoxItemName" Hidden="true" />
+      <Field Name="txtBoxItemPrice" Hidden="true" />
+      <Field Name="txtCategoryName" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACMKJACEGEhCiHAsAaAggACAJER4QBLACgIAYhHEAo=</HashCode>
+      <FileName>CustomUserControl\MenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAD.CustomUserControl.BillGenerator">
+    <Position X="3.5" Y="0.5" Width="3.75" />
+    <Members>
+      <Field Name="btnAddItemInttoBill" Hidden="true" />
+      <Field Name="btnClearBill" Hidden="true" />
+      <Field Name="btnPrintBill" Hidden="true" />
+      <Field Name="bunifuCustomLabel1" Hidden="true" />
+      <Field Name="bunifuCustomLabel12" Hidden="true" />
+      <Field Name="bunifuCustomLabel16" Hidden="true" />
+      <Field Name="bunifuCustomLabel17" Hidden="true" />
+      <Field Name="bunifuCustomLabel18" Hidden="true" />
+      <Field Name="bunifuCustomLabel19" Hidden="true" />
+      <Field Name="bunifuCustomLabel3" Hidden="true" />
+      <Field Name="bunifuCustomLabel9" Hidden="true" />
+      <Field Name="bunifuSeparator1" Hidden="true" />
+      <Field Name="bunifuSeparator2" Hidden="true" />
+      <Field Name="COlAmountBill" Hidden="true" />
+      <Field Name="ColItemBill" Hidden="true" />
+      <Field Name="ColQtyBill" Hidden="true" />
+      <Field Name="ColRateBill" Hidden="true" />
+      <Field Name="ColSnBill" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="dataGridBill" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="dropDownItemcategoryBill" Hidden="true" />
+      <Field Name="flowLayoutPanel2" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="lblBillCreateTime" Hidden="true" />
+      <Field Name="lblBillDate" Hidden="true" />
+      <Field Name="LblBillGeneratorHeading" Hidden="true" />
+      <Field Name="lblBillNo" Hidden="true" />
+      <Field Name="lblCustomerName" Hidden="true" />
+      <Field Name="lblGrandTotal" Hidden="true" />
+      <Field Name="lblOrgAddress" Hidden="true" />
+      <Field Name="lblOrgName" Hidden="true" />
+      <Field Name="lblOrgPanNo" Hidden="true" />
+      <Field Name="lblOrgTelNo" Hidden="true" />
+      <Field Name="lblServiceCharge" Hidden="true" />
+      <Field Name="lblServiceChargeRate" Hidden="true" />
+      <Field Name="lblSubTotal" Hidden="true" />
+      <Field Name="lblTotalAmt" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="panel6" Hidden="true" />
+      <Field Name="panel7" Hidden="true" />
+      <Field Name="panel8" Hidden="true" />
+      <Field Name="panel9" Hidden="true" />
+      <Field Name="Pnl" Hidden="true" />
+      <Field Name="PnlBillingDetails" Hidden="true" />
+      <Field Name="PnlBillItemSelector" Hidden="true" />
+      <Field Name="PnlHomePageContainer" Hidden="true" />
+      <Field Name="txtCustomerName" Hidden="true" />
+      <Field Name="txtItemCodeBill" Hidden="true" />
+      <Field Name="txtItemQtyBill" Hidden="true" />
+      <Field Name="txtItemRateBill" Hidden="true" />
+      <Field Name="txtReceivedAmount" Hidden="true" />
+      <Field Name="txtRefundAmount" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>xHhACBgCgCiCAJgVMiDQBMBDBMAVAgEMBIgmEwgAECE=</HashCode>
+      <FileName>CustomUserControl\BillGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CourseWorkAD.CustomUserControl.ChartGenerator">
+    <Position X="11.5" Y="0.5" Width="3.5" />
+    <Members>
+      <Field Name="btnRefresh" Hidden="true" />
+      <Field Name="bunifuCustomLabel1" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="lblOrgName" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="pcRevenue" Hidden="true" />
+      <Field Name="PnlHomePageContainer" Hidden="true" />
+      <Field Name="treeViewRevenue" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAIgAAAAACAQBACBAACAAAACAAAAAAAAAIgAASgAAKg=</HashCode>
+      <FileName>CustomUserControl\ChartGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

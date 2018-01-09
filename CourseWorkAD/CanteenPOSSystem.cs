@@ -23,7 +23,7 @@ namespace CourseWorkAD {
 
     public partial class CanteenPOSSystem : Form {
 
-        private System.Windows.Forms.Timer timer = null;  // Set timer null initially (Clock)
+        private Timer timer = null;  // Set timer null initially (Clock)
 
         // System build constructor
         public CanteenPOSSystem() {
@@ -41,11 +41,14 @@ namespace CourseWorkAD {
 
             // Initializing itemList for serialization.
             SerializeItem serializeItem = new SerializeItem { Items = CustomUserControl.MenuItem.ItemList };
+            // Initializing categoryList for serialization.
+            SerializeItem serializeCategory = new SerializeItem { CategoryList = CustomUserControl.MenuItem.CategoryList };
             // Initializing revenue dictionary for serialization.
-            SerializeItem revenueToSerialize = new SerializeItem { TotalSalesCollection = BillGenerator.TotalSalesCollection };
+            SerializeItem serializeRevenue = new SerializeItem { TotalSalesCollection = BillGenerator.TotalSalesCollection };
 
             SerializeThis(CustomUserControl.MenuItem.dataLocation, "ItemsData.dat", serializeItem);
-            SerializeThis(BillGenerator.revenueDataLocation, "RevenuesData.dat", revenueToSerialize);
+            SerializeThis(CustomUserControl.MenuItem.categoryLocation, "ItemsCategory.dat", serializeCategory);
+            SerializeThis(BillGenerator.revenueDataLocation, "RevenuesData.dat", serializeRevenue);
 
             this.Close();
         }

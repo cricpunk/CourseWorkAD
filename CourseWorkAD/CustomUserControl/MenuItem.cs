@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.FileIO;
@@ -8,6 +7,7 @@ using CourseWorkAD.Model;
 using CourseWorkAD.Serialization;
 using CourseWorkAD.FormValidator;
 using CourseWorkAD.Sources;
+using System.Linq;
 
 /* METHODS AND IT'S CONTENTS
  * ****************************************************************************************************************
@@ -36,42 +36,59 @@ namespace CourseWorkAD.CustomUserControl {
     public partial class MenuItem : UserControl {
 
         public static string dataLocation = Application.StartupPath + @"\ItemsData.dat";    // Serialize file location
-        private ComponentResourceManager resources;
+        public static string categoryLocation = Application.StartupPath + @"\ItemsCategory.dat";    // Serialize file location
+
         private Boolean update = false;     // Check either to update or insert item
         private int updateIndex;            // Updating item index
         private static List<Item> itemList = new List<Item>();  // Generic type list which holds items
         internal static List<Item> ItemList { get => itemList; set => itemList = value; }   // Getter and setter
+        private static List<string> categoryList = new List<string>();  // list which holds category name
+        internal static List<string> CategoryList { get => categoryList; set => categoryList = value; }   // Getter and setter
 
+        
+        
         // System build constructor
         public MenuItem() {
 
             InitializeComponent();           // System build method to load all components belongs to this class
-            resources = new ComponentResourceManager(typeof(MenuItem));     // For using images
-            dropDownItemCategory.Items = ItemCategory();                    // Set itemCategory values
-            dropDownItemCategory.selectedIndex = 0;                         // Select first index from dropdown items
-            InsertSerializeDataIntoTable();                                 // Call method to insert data into table
-
+            InsertSerializeDataIntoTable();   // Call method to insert data into table
+            SetItemCategory();                 // Set itemCategory
+           
         }
 
         /* METHOD : (1)
         * ********************************************************************************************************
-        * Custom categories which return array of string type
+        * Loop through item list to get category name
+        * If category list is not empty then loop through category list
+        * If category list doesnt contain category name from itemList then add into category list
+        * If category list is empty then add all category from item list
+        * Set dropdown items after using Distinct() method from Linq class.
+        * Distinct() method will return non repeted strings from list
+        * Finally, set selected index as first index
         * ********************************************************************************************************
         */
-        private string[] ItemCategory() {
+        private void SetItemCategory() {
 
-            string[] items = {
-                "--- Item Category ---",
-                "Drinks",
-                "Food",
-                "Beverage",
-                "Breakfast",
-                "Nepali",
-                "Chinees",
-                "Indian",
-                "Coffee & Soup"};
+            for (int i = 0; i < itemList.Count; i++) {
 
-            return items;
+                if(categoryList.Count > 0) {
+
+                    for (int j = 0; j < categoryList.Count; j++) {
+
+                        if (!categoryList.Contains(itemList[i].ItemCategory)) {
+                            categoryList.Add(itemList[i].ItemCategory);
+                        }
+
+                    }
+                } else {
+
+                    categoryList.Add(itemList[i].ItemCategory);
+                }
+
+            }
+
+            dropDownItemCategory.Items = categoryList.Distinct().ToArray();
+            dropDownItemCategory.selectedIndex = 0;         // Select first index from dropdown items
         }
 
         /* METHOD : (2)
@@ -80,6 +97,9 @@ namespace CourseWorkAD.CustomUserControl {
         * There is DeserializeItems method inside Serializer class which will carry Deserializing process.
         * Store results into SerializeItem class through object.
         * Assign value to attribute, loop through each items and call method to insert data into table.
+        * Deserialize category name from file location only if file is exist.
+        * Store results into SerializeItem class through object.
+        * If category name file is not exist add -- Select Item -- to categoryList. 
         * ********************************************************************************************************
         */
         private void InsertSerializeDataIntoTable() {
@@ -95,6 +115,17 @@ namespace CourseWorkAD.CustomUserControl {
                     InsertDataIntoTable(ItemList[i]);
                 }
 
+            }
+
+            if (File.Exists(categoryLocation)) {
+
+                SerializeItem serializeItem = new SerializeItem();
+                serializeItem = new Serializer().DeserializeItems("ItemsCategory.dat");
+
+                categoryList = serializeItem.CategoryList.Distinct().ToList();
+
+            } else {
+                categoryList.Add("-- Select Item --");
             }
 
         }
@@ -151,12 +182,13 @@ namespace CourseWorkAD.CustomUserControl {
 
                 if(ProcessCSVFileData(txtBoxFileLocation.Text)) {
                     txtBoxFileLocation.ResetText();
+                    SetItemCategory();
                 }  
                         
             }
             
         }
-
+        
         /* METHOD : (5)
         * ********************************************************************************************************
         * Cancle import process by clearing filelocation from textbox.
@@ -254,6 +286,7 @@ namespace CourseWorkAD.CustomUserControl {
                     itemList.Add(item);
                     InsertDataIntoTable(item);
                     ClearFields();
+                    SetItemCategory();
 
                 } else {
 
@@ -267,8 +300,10 @@ namespace CourseWorkAD.CustomUserControl {
                     dataGridMenu.Rows[updateIndex].Cells[4].Value = (editItem.ItemRate = txtBoxItemPrice.Text);
 
                     ClearFields();
-                    btnAddItem.ButtonText = "A D D   I T E M";  // After update set button name as additem and change icon too
-                    btnAddItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAddItem.Iconimage")));
+                    btnAddItem.ButtonText = "A D D";  // After update set button name as additem and change icon too
+                    btnAddItem.Iconimage = Properties.Resources.plus;
+                    dataGridMenu.ClearSelection();
+                    SetItemCategory();
                 }
 
             }
@@ -304,6 +339,9 @@ namespace CourseWorkAD.CustomUserControl {
             // Clear selected row from table.
             if (update) {
                 dataGridMenu.ClearSelection();
+                btnAddItem.Text = "A D D";
+                btnAddItem.Iconimage = Properties.Resources.plus;
+                this.update = false;
             }
         }
 
@@ -338,7 +376,7 @@ namespace CourseWorkAD.CustomUserControl {
             txtBoxItemName.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[2].Value);
             txtBoxItemPrice.Text = Convert.ToString(dataGridMenu.Rows[updateIndex].Cells[4].Value);
             btnAddItem.Text = "U P D A T E";
-            btnAddItem.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Iconimage")));
+            btnAddItem.Iconimage = Properties.Resources.update;
             this.update = true;     // Set update attribute as true which will be used to identify either to add an item or update
 
         }
@@ -541,6 +579,34 @@ namespace CourseWorkAD.CustomUserControl {
         private void TxtBoxItemPrice_KeyPress(object sender, KeyPressEventArgs e) {
             Validator.TextBox_KeyPress(sender, e);
         }
+
+        /* METHOD : (19)
+        * ********************************************************************************************************
+        * Add category item into list
+        * Update category dropdown list
+        * ********************************************************************************************************
+        */
+        private void BtnAddCategory_Click(object sender, EventArgs e) {
+
+            // If validation success
+            if(Validator.ValidateText(txtCategoryName)) {
+
+                // Check if category name provided is alreaddy exist or not. If not proceed else display message
+                if(!categoryList.Contains(txtCategoryName.Text)) {
+
+                    categoryList.Add(txtCategoryName.Text);     // Add category 
+                    SetItemCategory();                          // Reset item category list
+                    txtCategoryName.ResetText();                // Clear textfield
+                    MessageBox.Show("Category Added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } else {
+
+                    MessageBox.Show("Category name is already available. \nPlease try another name !", " Duplicate Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtCategoryName.ResetText();
+                }
+            } 
+
+        }
+
     }
 
 }

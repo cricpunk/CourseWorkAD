@@ -24,17 +24,18 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.PnlHomePageContainer = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblOrgName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.pcRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRefresh = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.clbSoldItems = new System.Windows.Forms.CheckedListBox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.treeViewRevenue = new System.Windows.Forms.TreeView();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.PnlHomePageContainer.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcRevenue)).BeginInit();
@@ -85,17 +86,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pcRevenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.pcRevenue.BorderlineColor = System.Drawing.Color.Black;
-            chartArea2.Name = "ChartArea1";
-            this.pcRevenue.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.pcRevenue.Legends.Add(legend2);
+            chartArea8.Name = "ChartArea1";
+            this.pcRevenue.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.pcRevenue.Legends.Add(legend8);
             this.pcRevenue.Location = new System.Drawing.Point(22, 100);
             this.pcRevenue.Name = "pcRevenue";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Legend = "Legend1";
-            series2.Name = "revenue";
-            this.pcRevenue.Series.Add(series2);
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series8.Legend = "Legend1";
+            series8.Name = "revenue";
+            this.pcRevenue.Series.Add(series8);
             this.pcRevenue.Size = new System.Drawing.Size(975, 811);
             this.pcRevenue.TabIndex = 3;
             this.pcRevenue.Text = "chart1";
@@ -103,8 +104,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.treeViewRevenue);
             this.panel1.Controls.Add(this.btnRefresh);
-            this.panel1.Controls.Add(this.clbSoldItems);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(1020, 65);
             this.panel1.Name = "panel1";
@@ -149,24 +151,6 @@
             this.btnRefresh.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
-            // clbSoldItems
-            // 
-            this.clbSoldItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.clbSoldItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
-            this.clbSoldItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.clbSoldItems.CheckOnClick = true;
-            this.clbSoldItems.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clbSoldItems.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clbSoldItems.ForeColor = System.Drawing.Color.Silver;
-            this.clbSoldItems.FormattingEnabled = true;
-            this.clbSoldItems.Location = new System.Drawing.Point(16, 101);
-            this.clbSoldItems.Margin = new System.Windows.Forms.Padding(0);
-            this.clbSoldItems.Name = "clbSoldItems";
-            this.clbSoldItems.Size = new System.Drawing.Size(366, 810);
-            this.clbSoldItems.TabIndex = 1;
-            this.clbSoldItems.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ClbSoldItems_ItemCheck);
-            // 
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
@@ -179,6 +163,29 @@
             this.bunifuCustomLabel1.TabIndex = 1;
             this.bunifuCustomLabel1.Text = "D  A  T  A     A  N  A  L  Y  Z  E  R";
             this.bunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // treeViewRevenue
+            // 
+            this.treeViewRevenue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeViewRevenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(47)))), ((int)(((byte)(61)))));
+            this.treeViewRevenue.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewRevenue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.treeViewRevenue.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeViewRevenue.ForeColor = System.Drawing.Color.Silver;
+            this.treeViewRevenue.FullRowSelect = true;
+            this.treeViewRevenue.Location = new System.Drawing.Point(16, 100);
+            this.treeViewRevenue.Name = "treeViewRevenue";
+            this.treeViewRevenue.Size = new System.Drawing.Size(366, 810);
+            this.treeViewRevenue.TabIndex = 26;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 916);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(400, 72);
+            this.panel3.TabIndex = 27;
             // 
             // ChartGenerator
             // 
@@ -202,8 +209,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataVisualization.Charting.Chart pcRevenue;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckedListBox clbSoldItems;
         private Bunifu.Framework.UI.BunifuCustomLabel lblOrgName;
         private Bunifu.Framework.UI.BunifuFlatButton btnRefresh;
+        private System.Windows.Forms.TreeView treeViewRevenue;
+        private System.Windows.Forms.Panel panel3;
     }
 }
